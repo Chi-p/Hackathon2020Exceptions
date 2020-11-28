@@ -1,4 +1,5 @@
-﻿using DesktopApp.Windows;
+﻿using DesktopApp.Classes;
+using DesktopApp.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:DesktopApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MainWindowTeacherPage" Style="{StaticResource MainPage}">
+      Title="Главное меню" Style="{StaticResource MainPage}">
 
     <Grid>
         <Grid Height="300" Width="400" Background="{StaticResource MainHalfWhite}" xf:Animations.Primary="{StaticResource FadeOutAndTranslateNormaly}">

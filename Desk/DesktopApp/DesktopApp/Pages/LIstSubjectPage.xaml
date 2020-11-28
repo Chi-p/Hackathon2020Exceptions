@@ -8,7 +8,7 @@
       xmlns:local="clr-namespace:DesktopApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Список пар и групп">
+      Title="Список пар и групп" Style="{StaticResource MainPage}"> 
 
     <Grid>
         <ItemsControl xf:Animations.Primary="{StaticResource FadeOutAndTranslateNormaly}" Background="{StaticResource MainHalfWhite}" Margin="10" Name="AnimLvSubject" HorizontalContentAlignment="Stretch"  >
@@ -21,7 +21,7 @@
                         <xfc:AnimatedListView Margin="10"  HorizontalContentAlignment="Center"  xf:Animations.Items="{xf:Animate BasedOn={StaticResource FadeInForListViews}}" xf:Animations.InterElementDelay="50"  Name="AnimLvGroup" ItemsSource="{Binding }">
                             <xfc:AnimatedListView.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid Height="70" Width="460" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+                                    <Grid Height="70" Width="460" Background="{StaticResource MainHalfWhite}" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="50"></ColumnDefinition>
                                             <ColumnDefinition></ColumnDefinition>
