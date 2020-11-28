@@ -10,7 +10,6 @@
       Title="ListOfExerciseAndStudents">
 
     <Grid>
-        
         <xfc:AnimatedListView Name="AnimLvExercise" SelectionMode="Extended">
             <xfc:AnimatedListView.ItemTemplate>
                 <DataTemplate>
