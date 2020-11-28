@@ -25,10 +25,10 @@ namespace DesktopApp.Windows
         public AddTaskPage()
         {
             InitializeComponent();
-            _task = new Entities.Task
-            {
+            //_task = new Entities.Task
+            //{
                 
-            }
+            //}
         }
         private void MIAddValue_Click(object sender, RoutedEventArgs e)
         {
