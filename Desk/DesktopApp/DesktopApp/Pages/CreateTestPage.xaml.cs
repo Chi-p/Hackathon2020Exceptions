@@ -24,12 +24,18 @@ namespace DesktopApp.Pages
         public CreateTestPage()
         {
             InitializeComponent();
+            IcTask.ItemsSource = null;
         }
 
         private void BtnAddTask_Click(object sender, RoutedEventArgs e)
         {
             AddTaskPage addTaskWindow = new AddTaskPage();
             addTaskWindow.ShowDialog();
+        }
+
+        private void BtnOk_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

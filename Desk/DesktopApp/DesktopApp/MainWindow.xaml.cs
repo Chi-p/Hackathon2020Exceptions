@@ -26,6 +26,7 @@ namespace DesktopApp
         public MainWindow()
         {
             InitializeComponent();
+       
             AppData.MainFrame = MainFrame;
 
         }
