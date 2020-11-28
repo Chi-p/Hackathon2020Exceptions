@@ -45,7 +45,7 @@ namespace DesktopApp.Pages {
         
         #line 14 "..\..\..\Pages\LIstSubjectPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.ItemsControl AnimLvSubject;
+        internal XamlFlair.Controls.AnimatedListView AnimLvSubject;
         
         #line default
         #line hidden
@@ -81,7 +81,7 @@ namespace DesktopApp.Pages {
             switch (connectionId)
             {
             case 1:
-            this.AnimLvSubject = ((System.Windows.Controls.ItemsControl)(target));
+            this.AnimLvSubject = ((XamlFlair.Controls.AnimatedListView)(target));
             return;
             }
             this._contentLoaded = true;
@@ -98,7 +98,7 @@ namespace DesktopApp.Pages {
             {
             case 2:
             
-            #line 24 "..\..\..\Pages\LIstSubjectPage.xaml"
+            #line 22 "..\..\..\Pages\LIstSubjectPage.xaml"
             ((System.Windows.Controls.Grid)(target)).MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(this.Grid_MouseLeftButtonDown);
             
             #line default
