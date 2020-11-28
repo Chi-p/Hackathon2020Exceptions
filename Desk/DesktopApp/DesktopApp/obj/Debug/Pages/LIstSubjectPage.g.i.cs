@@ -30,7 +30,6 @@ using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Shell;
-using XamlFlair;
 using XamlFlair.Controls;
 
 
@@ -43,7 +42,7 @@ namespace DesktopApp.Pages {
     public partial class LIstSubjectPage : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector, System.Windows.Markup.IStyleConnector {
         
         
-        #line 14 "..\..\..\Pages\LIstSubjectPage.xaml"
+        #line 13 "..\..\..\Pages\LIstSubjectPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal XamlFlair.Controls.AnimatedListView AnimLvSubject;
         
