@@ -17,7 +17,9 @@ namespace DesktopApp.Entities
         public int Id { get; set; }
         public int VariableId { get; set; }
         public string Value { get; set; }
+        public Nullable<int> StudentId { get; set; }
     
+        public virtual Student Student { get; set; }
         public virtual Variable Variable { get; set; }
     }
 }

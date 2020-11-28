@@ -3,17 +3,28 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
         xmlns:local="clr-namespace:DesktopApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Style="{StaticResource MainWindow}">
-    <Grid>
+        Title="MainWindow" Height="600" Width="1000"  Style="{StaticResource MainWindow}">
+    <Grid Background="{StaticResource MainGradient}">
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Frame ContentRendered="MainFrame_ContentRendered" x:Name="MainFrame"></Frame>
-        <Button Grid.Row="1" x:Name="BtnLogout" Click="BtnLogout_Click"></Button>
-        <Button Grid.Row="2" x:Name="BtnBack" Click="BtnBack_Click">Назад</Button>
+        <Frame Grid.Row="1" ContentRendered="MainFrame_ContentRendered" x:Name="MainFrame"></Frame>
+        <Grid Visibility="Collapsed" Name="GridWithTopThings">
+            <Button Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="BtnBack" Background="Transparent"  BorderBrush="Transparent" Style="{StaticResource ButtonStyled}"  Click="BtnLogout_Click">🠔</Button>
+            <Image Source="Resources/notAThiefWhite.png" HorizontalAlignment="Left" VerticalAlignment="Center" Height="60" Margin="40 5 5 5"></Image>
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource TblockBold}" Name="TblName" Margin="5 5 50 5"></TextBlock>
+        </Grid>
+
+        <Grid Background="{StaticResource MainAlmostBlack}" Opacity="0" xf:Animations.StartWith="{StaticResource FadeIn}" xf:Animations.PrimaryBinding="{Binding IsPressed}" xf:Animations.Primary="{StaticResource FadeOutAndTranslate}" Grid.RowSpan="2" Name="GridForAnimations">
+            <Ellipse Width="2000" Margin="-500 -500 0 150" Fill="{StaticResource MainPageGradient}"></Ellipse>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Height="100" Source="Resources/notAThiefBlack.png"></Image>
+                <Image HorizontalAlignment="Center" Height="50" MouseLeftButtonDown="Image_MouseLeftButtonDown"  Source="Resources/IconArrowRight.png"></Image>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

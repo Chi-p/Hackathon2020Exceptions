@@ -30,6 +30,7 @@ using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Shell;
+using XamlFlair;
 
 
 namespace DesktopApp.Pages {
@@ -41,15 +42,7 @@ namespace DesktopApp.Pages {
     public partial class AutorizationPage : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector {
         
         
-        #line 13 "..\..\..\Pages\AutorizationPage.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.CheckBox CbIsRemember;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 14 "..\..\..\Pages\AutorizationPage.xaml"
+        #line 21 "..\..\..\Pages\AutorizationPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox TbLogin;
         
@@ -57,7 +50,7 @@ namespace DesktopApp.Pages {
         #line hidden
         
         
-        #line 15 "..\..\..\Pages\AutorizationPage.xaml"
+        #line 23 "..\..\..\Pages\AutorizationPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.PasswordBox PbPassword;
         
@@ -65,7 +58,15 @@ namespace DesktopApp.Pages {
         #line hidden
         
         
-        #line 16 "..\..\..\Pages\AutorizationPage.xaml"
+        #line 24 "..\..\..\Pages\AutorizationPage.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.CheckBox CbIsRemember;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 25 "..\..\..\Pages\AutorizationPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnOk;
         
@@ -103,18 +104,18 @@ namespace DesktopApp.Pages {
             switch (connectionId)
             {
             case 1:
-            this.CbIsRemember = ((System.Windows.Controls.CheckBox)(target));
-            return;
-            case 2:
             this.TbLogin = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 3:
+            case 2:
             this.PbPassword = ((System.Windows.Controls.PasswordBox)(target));
+            return;
+            case 3:
+            this.CbIsRemember = ((System.Windows.Controls.CheckBox)(target));
             return;
             case 4:
             this.BtnOk = ((System.Windows.Controls.Button)(target));
             
-            #line 16 "..\..\..\Pages\AutorizationPage.xaml"
+            #line 25 "..\..\..\Pages\AutorizationPage.xaml"
             this.BtnOk.Click += new System.Windows.RoutedEventHandler(this.BtnOk_Click);
             
             #line default

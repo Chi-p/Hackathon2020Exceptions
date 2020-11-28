@@ -4,13 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:xfc="clr-namespace:XamlFlair.Controls;assembly=XamlFlair.WPF"
+      xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
       xmlns:local="clr-namespace:DesktopApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Список пар и групп">
 
     <Grid>
-        <xfc:AnimatedListView Name="AnimLvSubject" SelectionMode="Extended">
+        <xfc:AnimatedListView Name="AnimLvSubject"  xf:Animations.Items="{xf:Animate BasedOn={StaticResource FadeInForListViews}}" xf:Animations.InterElementDelay="25">
             <xfc:AnimatedListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

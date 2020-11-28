@@ -3,17 +3,28 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
       xmlns:local="clr-namespace:DesktopApp.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="1000"
       Title="Авторизация" Style="{StaticResource MainPage}">
 
     <Grid>
-        <StackPanel>
-            <CheckBox x:Name="CbIsRemember"></CheckBox>
-            <TextBox x:Name="TbLogin"></TextBox>
-            <PasswordBox x:Name="PbPassword"></PasswordBox>
-            <Button x:Name="BtnOk" Height="50" Click="BtnOk_Click"></Button>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid xf:Animations.Primary="{StaticResource FadeOutAndTranslateNormaly}"  Width="400" Height="400"  Background="White">
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Логин" ></TextBlock>
+                <TextBox x:Name="TbLogin" Width="200"  Style="{StaticResource TextBoxStyled}"></TextBox>
+                <TextBlock Text="Пароль" ></TextBlock>
+                <PasswordBox x:Name="PbPassword" Width="200" Style="{StaticResource PasswordBoxStyled}"></PasswordBox>
+                <CheckBox x:Name="CbIsRemember" Content="Запомнить меня" Style="{DynamicResource CheckBoxStyled}"></CheckBox>
+                <Button x:Name="BtnOk" Height="40" Click="BtnOk_Click" Style="{DynamicResource ButtonStyled}">Войти</Button>
+            </StackPanel>
+        </Grid>
+        <Image xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeOutAndTranslateNormaly}, Delay=700}" Grid.Column="1" HorizontalAlignment="Center" Height="100" VerticalAlignment="Center" Source="/DesktopApp;component/Resources/notAThiefWhite.png"></Image>
     </Grid>
 </Page>

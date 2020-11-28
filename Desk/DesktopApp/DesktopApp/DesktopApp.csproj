@@ -377,6 +377,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Window\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entities\ModelDB.Context.tt">
@@ -389,6 +390,9 @@
       <DependentUpon>ModelDB.edmx</DependentUpon>
       <LastGenOutput>ModelDB.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\IconArrowRight.png" />
+    <Resource Include="Resources\notAThiefBlack.png" />
+    <Resource Include="Resources\notAThiefWhite.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
