@@ -1,32 +1,138 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="NotAThiefDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="NotAThiefDataBaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Exercise" EntityType="NotAThiefDataBaseModel.Exercise" />
+    <EntitySet Name="ExerciseOfStudent" EntityType="NotAThiefDataBaseModel.ExerciseOfStudent" />
+    <EntitySet Name="FileInTask" EntityType="NotAThiefDataBaseModel.FileInTask" />
+    <EntitySet Name="Group" EntityType="NotAThiefDataBaseModel.Group" />
+    <EntitySet Name="Question" EntityType="NotAThiefDataBaseModel.Question" />
+    <EntitySet Name="Role" EntityType="NotAThiefDataBaseModel.Role" />
+    <EntitySet Name="Status" EntityType="NotAThiefDataBaseModel.Status" />
+    <EntitySet Name="Student" EntityType="NotAThiefDataBaseModel.Student" />
+    <EntitySet Name="Subject" EntityType="NotAThiefDataBaseModel.Subject" />
+    <EntitySet Name="SubjectOfTeacher" EntityType="NotAThiefDataBaseModel.SubjectOfTeacher" />
+    <EntitySet Name="sysdiagrams" EntityType="NotAThiefDataBaseModel.sysdiagrams" />
+    <EntitySet Name="Task" EntityType="NotAThiefDataBaseModel.Task" />
+    <EntitySet Name="TaskType" EntityType="NotAThiefDataBaseModel.TaskType" />
+    <EntitySet Name="TypeOfExercise" EntityType="NotAThiefDataBaseModel.TypeOfExercise" />
+    <EntitySet Name="User" EntityType="NotAThiefDataBaseModel.User" />
+    <EntitySet Name="Variable" EntityType="NotAThiefDataBaseModel.Variable" />
+    <EntitySet Name="VariableValue" EntityType="NotAThiefDataBaseModel.VariableValue" />
+    <AssociationSet Name="FK_Exercise_TypeOfExercise" Association="NotAThiefDataBaseModel.FK_Exercise_TypeOfExercise">
+      <End Role="TypeOfExercise" EntitySet="TypeOfExercise" />
+      <End Role="Exercise" EntitySet="Exercise" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExerciseOfStudent_Exercise" Association="NotAThiefDataBaseModel.FK_ExerciseOfStudent_Exercise">
+      <End Role="Exercise" EntitySet="Exercise" />
+      <End Role="ExerciseOfStudent" EntitySet="ExerciseOfStudent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExerciseOfStudent_Status" Association="NotAThiefDataBaseModel.FK_ExerciseOfStudent_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="ExerciseOfStudent" EntitySet="ExerciseOfStudent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExerciseOfStudent_Student" Association="NotAThiefDataBaseModel.FK_ExerciseOfStudent_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="ExerciseOfStudent" EntitySet="ExerciseOfStudent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FileInTask_Task" Association="NotAThiefDataBaseModel.FK_FileInTask_Task">
+      <End Role="Task" EntitySet="Task" />
+      <End Role="FileInTask" EntitySet="FileInTask" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectOfTeacher_Group" Association="NotAThiefDataBaseModel.FK_SubjectOfTeacher_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_Task" Association="NotAThiefDataBaseModel.FK_Question_Task">
+      <End Role="Task" EntitySet="Task" />
+      <End Role="Question" EntitySet="Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Variable_Question" Association="NotAThiefDataBaseModel.FK_Variable_Question">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="Variable" EntitySet="Variable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="NotAThiefDataBaseModel.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_User" Association="NotAThiefDataBaseModel.FK_Student_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VariableValue_Student" Association="NotAThiefDataBaseModel.FK_VariableValue_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="VariableValue" EntitySet="VariableValue" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectOfTeacher_Subject" Association="NotAThiefDataBaseModel.FK_SubjectOfTeacher_Subject">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectOfTeacher_User" Association="NotAThiefDataBaseModel.FK_SubjectOfTeacher_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Task_SubjectOfTeacher" Association="NotAThiefDataBaseModel.FK_Task_SubjectOfTeacher">
+      <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Task_TaskType1" Association="NotAThiefDataBaseModel.FK_Task_TaskType1">
+      <End Role="TaskType" EntitySet="TaskType" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VariableValue_Variable" Association="NotAThiefDataBaseModel.FK_VariableValue_Variable">
+      <End Role="Variable" EntitySet="Variable" />
+      <End Role="VariableValue" EntitySet="VariableValue" />
+    </AssociationSet>
+    <AssociationSet Name="GroupOfStudent" Association="NotAThiefDataBaseModel.GroupOfStudent">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="TaskOfExercise" Association="NotAThiefDataBaseModel.TaskOfExercise">
+      <End Role="Exercise" EntitySet="Exercise" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="Exercise">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="TypeOfExerciseId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="TypeOfExercise" Relationship="Self.FK_Exercise_TypeOfExercise" FromRole="Exercise" ToRole="TypeOfExercise" />
-    <NavigationProperty Name="Task" Relationship="Self.TaskOfExercise" FromRole="Exercise" ToRole="Task" />
+    <NavigationProperty Name="TypeOfExercise" Relationship="NotAThiefDataBaseModel.FK_Exercise_TypeOfExercise" FromRole="Exercise" ToRole="TypeOfExercise" />
+    <NavigationProperty Name="ExerciseOfStudent" Relationship="NotAThiefDataBaseModel.FK_ExerciseOfStudent_Exercise" FromRole="Exercise" ToRole="ExerciseOfStudent" />
+    <NavigationProperty Name="Task" Relationship="NotAThiefDataBaseModel.TaskOfExercise" FromRole="Exercise" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="ExerciseOfStudent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ExerciseId" Type="Int32" Nullable="false" />
+    <Property Name="StudentId" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Mark" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StatusId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Exercise" Relationship="NotAThiefDataBaseModel.FK_ExerciseOfStudent_Exercise" FromRole="ExerciseOfStudent" ToRole="Exercise" />
+    <NavigationProperty Name="Status" Relationship="NotAThiefDataBaseModel.FK_ExerciseOfStudent_Status" FromRole="ExerciseOfStudent" ToRole="Status" />
+    <NavigationProperty Name="Student" Relationship="NotAThiefDataBaseModel.FK_ExerciseOfStudent_Student" FromRole="ExerciseOfStudent" ToRole="Student" />
   </EntityType>
   <EntityType Name="FileInTask">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="FileBit" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="FileBit" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
     <Property Name="TaskId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Task" Relationship="Self.FK_FileInTask_Task" FromRole="FileInTask" ToRole="Task" />
+    <NavigationProperty Name="Task" Relationship="NotAThiefDataBaseModel.FK_FileInTask_Task" FromRole="FileInTask" ToRole="Task" />
   </EntityType>
   <EntityType Name="Group">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="SubjectOfTeacher" Relationship="Self.FK_SubjectOfTeacher_Group" FromRole="Group" ToRole="SubjectOfTeacher" />
-    <NavigationProperty Name="Student" Relationship="Self.GroupOfStudent" FromRole="Group" ToRole="Student" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SubjectOfTeacher" Relationship="NotAThiefDataBaseModel.FK_SubjectOfTeacher_Group" FromRole="Group" ToRole="SubjectOfTeacher" />
+    <NavigationProperty Name="Student" Relationship="NotAThiefDataBaseModel.GroupOfStudent" FromRole="Group" ToRole="Student" />
   </EntityType>
   <EntityType Name="Question">
     <Key>
@@ -34,34 +140,45 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TaskId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Task" Relationship="Self.FK_Question_Task" FromRole="Question" ToRole="Task" />
-    <NavigationProperty Name="Variable" Relationship="Self.FK_Variable_Question" FromRole="Question" ToRole="Variable" />
+    <NavigationProperty Name="Task" Relationship="NotAThiefDataBaseModel.FK_Question_Task" FromRole="Question" ToRole="Task" />
+    <NavigationProperty Name="Variable" Relationship="NotAThiefDataBaseModel.FK_Variable_Question" FromRole="Question" ToRole="Variable" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="NotAThiefDataBaseModel.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ExerciseOfStudent" Relationship="NotAThiefDataBaseModel.FK_ExerciseOfStudent_Status" FromRole="Status" ToRole="ExerciseOfStudent" />
   </EntityType>
   <EntityType Name="Student">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="NamedNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NamedNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="DateOfReceipt" Type="DateTime" Nullable="false" Precision="0" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Student_User" FromRole="Student" ToRole="User" />
-    <NavigationProperty Name="Group" Relationship="Self.GroupOfStudent" FromRole="Student" ToRole="Group" />
+    <NavigationProperty Name="ExerciseOfStudent" Relationship="NotAThiefDataBaseModel.FK_ExerciseOfStudent_Student" FromRole="Student" ToRole="ExerciseOfStudent" />
+    <NavigationProperty Name="User" Relationship="NotAThiefDataBaseModel.FK_Student_User" FromRole="Student" ToRole="User" />
+    <NavigationProperty Name="VariableValue" Relationship="NotAThiefDataBaseModel.FK_VariableValue_Student" FromRole="Student" ToRole="VariableValue" />
+    <NavigationProperty Name="Group" Relationship="NotAThiefDataBaseModel.GroupOfStudent" FromRole="Student" ToRole="Group" />
   </EntityType>
   <EntityType Name="Subject">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="SubjectOfTeacher" Relationship="Self.FK_SubjectOfTeacher_Subject" FromRole="Subject" ToRole="SubjectOfTeacher" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="SubjectOfTeacher" Relationship="NotAThiefDataBaseModel.FK_SubjectOfTeacher_Subject" FromRole="Subject" ToRole="SubjectOfTeacher" />
   </EntityType>
   <EntityType Name="SubjectOfTeacher">
     <Key>
@@ -71,16 +188,16 @@
     <Property Name="TeacherId" Type="Int32" Nullable="false" />
     <Property Name="GroupId" Type="Int32" Nullable="false" />
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <NavigationProperty Name="Group" Relationship="Self.FK_SubjectOfTeacher_Group" FromRole="SubjectOfTeacher" ToRole="Group" />
-    <NavigationProperty Name="Subject" Relationship="Self.FK_SubjectOfTeacher_Subject" FromRole="SubjectOfTeacher" ToRole="Subject" />
-    <NavigationProperty Name="User" Relationship="Self.FK_SubjectOfTeacher_User" FromRole="SubjectOfTeacher" ToRole="User" />
-    <NavigationProperty Name="Task" Relationship="Self.FK_Task_SubjectOfTeacher" FromRole="SubjectOfTeacher" ToRole="Task" />
+    <NavigationProperty Name="Group" Relationship="NotAThiefDataBaseModel.FK_SubjectOfTeacher_Group" FromRole="SubjectOfTeacher" ToRole="Group" />
+    <NavigationProperty Name="Subject" Relationship="NotAThiefDataBaseModel.FK_SubjectOfTeacher_Subject" FromRole="SubjectOfTeacher" ToRole="Subject" />
+    <NavigationProperty Name="User" Relationship="NotAThiefDataBaseModel.FK_SubjectOfTeacher_User" FromRole="SubjectOfTeacher" ToRole="User" />
+    <NavigationProperty Name="Task" Relationship="NotAThiefDataBaseModel.FK_Task_SubjectOfTeacher" FromRole="SubjectOfTeacher" ToRole="Task" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
     </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="principal_id" Type="Int32" Nullable="false" />
     <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="version" Type="Int32" />
@@ -92,29 +209,29 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TypeOfTask" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="SubjectOfTeacherId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="FileInTask" Relationship="Self.FK_FileInTask_Task" FromRole="Task" ToRole="FileInTask" />
-    <NavigationProperty Name="Question" Relationship="Self.FK_Question_Task" FromRole="Task" ToRole="Question" />
-    <NavigationProperty Name="SubjectOfTeacher" Relationship="Self.FK_Task_SubjectOfTeacher" FromRole="Task" ToRole="SubjectOfTeacher" />
-    <NavigationProperty Name="TaskType" Relationship="Self.FK_Task_TaskType1" FromRole="Task" ToRole="TaskType" />
-    <NavigationProperty Name="Exercise" Relationship="Self.TaskOfExercise" FromRole="Task" ToRole="Exercise" />
+    <NavigationProperty Name="FileInTask" Relationship="NotAThiefDataBaseModel.FK_FileInTask_Task" FromRole="Task" ToRole="FileInTask" />
+    <NavigationProperty Name="Question" Relationship="NotAThiefDataBaseModel.FK_Question_Task" FromRole="Task" ToRole="Question" />
+    <NavigationProperty Name="SubjectOfTeacher" Relationship="NotAThiefDataBaseModel.FK_Task_SubjectOfTeacher" FromRole="Task" ToRole="SubjectOfTeacher" />
+    <NavigationProperty Name="TaskType" Relationship="NotAThiefDataBaseModel.FK_Task_TaskType1" FromRole="Task" ToRole="TaskType" />
+    <NavigationProperty Name="Exercise" Relationship="NotAThiefDataBaseModel.TaskOfExercise" FromRole="Task" ToRole="Exercise" />
   </EntityType>
   <EntityType Name="TaskType">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Task" Relationship="Self.FK_Task_TaskType1" FromRole="TaskType" ToRole="Task" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Task" Relationship="NotAThiefDataBaseModel.FK_Task_TaskType1" FromRole="TaskType" ToRole="Task" />
   </EntityType>
   <EntityType Name="TypeOfExercise">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Exercise" Relationship="Self.FK_Exercise_TypeOfExercise" FromRole="TypeOfExercise" ToRole="Exercise" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Exercise" Relationship="NotAThiefDataBaseModel.FK_Exercise_TypeOfExercise" FromRole="TypeOfExercise" ToRole="Exercise" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -122,24 +239,25 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RoleId" Type="Int32" Nullable="false" />
-    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
-    <NavigationProperty Name="Student" Relationship="Self.FK_Student_User" FromRole="User" ToRole="Student" />
-    <NavigationProperty Name="SubjectOfTeacher" Relationship="Self.FK_SubjectOfTeacher_User" FromRole="User" ToRole="SubjectOfTeacher" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Role" Relationship="NotAThiefDataBaseModel.FK_User_Role" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="Student" Relationship="NotAThiefDataBaseModel.FK_Student_User" FromRole="User" ToRole="Student" />
+    <NavigationProperty Name="SubjectOfTeacher" Relationship="NotAThiefDataBaseModel.FK_SubjectOfTeacher_User" FromRole="User" ToRole="SubjectOfTeacher" />
   </EntityType>
   <EntityType Name="Variable">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="QuestionId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Question" Relationship="Self.FK_Variable_Question" FromRole="Variable" ToRole="Question" />
-    <NavigationProperty Name="VariableValue" Relationship="Self.FK_VariableValue_Variable" FromRole="Variable" ToRole="VariableValue" />
+    <NavigationProperty Name="Question" Relationship="NotAThiefDataBaseModel.FK_Variable_Question" FromRole="Variable" ToRole="Question" />
+    <NavigationProperty Name="VariableValue" Relationship="NotAThiefDataBaseModel.FK_VariableValue_Variable" FromRole="Variable" ToRole="VariableValue" />
   </EntityType>
   <EntityType Name="VariableValue">
     <Key>
@@ -147,12 +265,14 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="VariableId" Type="Int32" Nullable="false" />
-    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Variable" Relationship="Self.FK_VariableValue_Variable" FromRole="VariableValue" ToRole="Variable" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StudentId" Type="Int32" />
+    <NavigationProperty Name="Student" Relationship="NotAThiefDataBaseModel.FK_VariableValue_Student" FromRole="VariableValue" ToRole="Student" />
+    <NavigationProperty Name="Variable" Relationship="NotAThiefDataBaseModel.FK_VariableValue_Variable" FromRole="VariableValue" ToRole="Variable" />
   </EntityType>
   <Association Name="FK_Exercise_TypeOfExercise">
-    <End Role="TypeOfExercise" Type="Self.TypeOfExercise" Multiplicity="1" />
-    <End Role="Exercise" Type="Self.Exercise" Multiplicity="*" />
+    <End Type="NotAThiefDataBaseModel.TypeOfExercise" Role="TypeOfExercise" Multiplicity="1" />
+    <End Type="NotAThiefDataBaseModel.Exercise" Role="Exercise" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TypeOfExercise">
         <PropertyRef Name="Id" />
@@ -162,9 +282,45 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ExerciseOfStudent_Exercise">
+    <End Type="NotAThiefDataBaseModel.Exercise" Role="Exercise" Multiplicity="1" />
+    <End Type="NotAThiefDataBaseModel.ExerciseOfStudent" Role="ExerciseOfStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exercise">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExerciseOfStudent">
+        <PropertyRef Name="ExerciseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExerciseOfStudent_Status">
+    <End Type="NotAThiefDataBaseModel.Status" Role="Status" Multiplicity="1" />
+    <End Type="NotAThiefDataBaseModel.ExerciseOfStudent" Role="ExerciseOfStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExerciseOfStudent">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExerciseOfStudent_Student">
+    <End Type="NotAThiefDataBaseModel.Student" Role="Student" Multiplicity="1" />
+    <End Type="NotAThiefDataBaseModel.ExerciseOfStudent" Role="ExerciseOfStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExerciseOfStudent">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_FileInTask_Task">
-    <End Role="Task" Type="Self.Task" Multiplicity="1" />
-    <End Role="FileInTask" Type="Self.FileInTask" Multiplicity="*" />
+    <End Type="NotAThiefDataBaseModel.Task" Role="Task" Multiplicity="1" />
+    <End Type="NotAThiefDataBaseModel.FileInTask" Role="FileInTask" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Task">
         <PropertyRef Name="Id" />
@@ -175,8 +331,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_SubjectOfTeacher_Group">
-    <End Role="Group" Type="Self.Group" Multiplicity="1" />
-    <End Role="SubjectOfTeacher" Type="Self.SubjectOfTeacher" Multiplicity="*" />
+    <End Type="NotAThiefDataBaseModel.Group" Role="Group" Multiplicity="1" />
+    <End Type="NotAThiefDataBaseModel.SubjectOfTeacher" Role="SubjectOfTeacher" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Group">
         <PropertyRef Name="Id" />
@@ -187,8 +343,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Question_Task">
-    <End Role="Task" Type="Self.Task" Multiplicity="1" />
-    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <End Type="NotAThiefDataBaseModel.Task" Role="Task" Multiplicity="1" />
+    <End Type="NotAThiefDataBaseModel.Question" Role="Question" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Task">
         <PropertyRef Name="Id" />
@@ -199,8 +355,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Variable_Question">
-    <End Role="Question" Type="Self.Question" Multiplicity="1" />
-    <End Role="Variable" Type="Self.Variable" Multiplicity="*" />
+    <End Type="NotAThiefDataBaseModel.Question" Role="Question" Multiplicity="1" />
+    <End Type="NotAThiefDataBaseModel.Variable" Role="Variable" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Question">
         <PropertyRef Name="Id" />
@@ -211,8 +367,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_User_Role">
-    <End Role="Role" Type="Self.Role" Multiplicity="1" />
-    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <End Type="NotAThiefDataBaseModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="NotAThiefDataBaseModel.User" Role="User" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Role">
         <PropertyRef Name="Id" />
@@ -223,8 +379,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Student_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Type="NotAThiefDataBaseModel.User" Role="User" Multiplicity="1" />
+    <End Type="NotAThiefDataBaseModel.Student" Role="Student" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="Id" />
@@ -234,9 +390,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_VariableValue_Student">
+    <End Type="NotAThiefDataBaseModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="NotAThiefDataBaseModel.VariableValue" Role="VariableValue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VariableValue">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_SubjectOfTeacher_Subject">
-    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
-    <End Role="SubjectOfTeacher" Type="Self.SubjectOfTeacher" Multiplicity="*" />
+    <End Type="NotAThiefDataBaseModel.Subject" Role="Subject" Multiplicity="1" />
+    <End Type="NotAThiefDataBaseModel.SubjectOfTeacher" Role="SubjectOfTeacher" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Subject">
         <PropertyRef Name="Id" />
@@ -247,8 +415,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_SubjectOfTeacher_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="SubjectOfTeacher" Type="Self.SubjectOfTeacher" Multiplicity="*" />
+    <End Type="NotAThiefDataBaseModel.User" Role="User" Multiplicity="1" />
+    <End Type="NotAThiefDataBaseModel.SubjectOfTeacher" Role="SubjectOfTeacher" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="Id" />
@@ -259,8 +427,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Task_SubjectOfTeacher">
-    <End Role="SubjectOfTeacher" Type="Self.SubjectOfTeacher" Multiplicity="1" />
-    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <End Type="NotAThiefDataBaseModel.SubjectOfTeacher" Role="SubjectOfTeacher" Multiplicity="1" />
+    <End Type="NotAThiefDataBaseModel.Task" Role="Task" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="SubjectOfTeacher">
         <PropertyRef Name="Id" />
@@ -271,8 +439,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Task_TaskType1">
-    <End Role="TaskType" Type="Self.TaskType" Multiplicity="1" />
-    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <End Type="NotAThiefDataBaseModel.TaskType" Role="TaskType" Multiplicity="1" />
+    <End Type="NotAThiefDataBaseModel.Task" Role="Task" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TaskType">
         <PropertyRef Name="Id" />
@@ -283,8 +451,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_VariableValue_Variable">
-    <End Role="Variable" Type="Self.Variable" Multiplicity="1" />
-    <End Role="VariableValue" Type="Self.VariableValue" Multiplicity="*" />
+    <End Type="NotAThiefDataBaseModel.Variable" Role="Variable" Multiplicity="1" />
+    <End Type="NotAThiefDataBaseModel.VariableValue" Role="VariableValue" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Variable">
         <PropertyRef Name="Id" />
@@ -295,84 +463,11 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="GroupOfStudent">
-    <End Role="Group" Type="Self.Group" Multiplicity="*" />
-    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <End Type="NotAThiefDataBaseModel.Group" Role="Group" Multiplicity="*" />
+    <End Type="NotAThiefDataBaseModel.Student" Role="Student" Multiplicity="*" />
   </Association>
   <Association Name="TaskOfExercise">
-    <End Role="Exercise" Type="Self.Exercise" Multiplicity="*" />
-    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <End Type="NotAThiefDataBaseModel.Exercise" Role="Exercise" Multiplicity="*" />
+    <End Type="NotAThiefDataBaseModel.Task" Role="Task" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="NotAThiefDataBaseEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Exercise" EntityType="Self.Exercise" />
-    <EntitySet Name="FileInTask" EntityType="Self.FileInTask" />
-    <EntitySet Name="Group" EntityType="Self.Group" />
-    <EntitySet Name="Question" EntityType="Self.Question" />
-    <EntitySet Name="Role" EntityType="Self.Role" />
-    <EntitySet Name="Student" EntityType="Self.Student" />
-    <EntitySet Name="Subject" EntityType="Self.Subject" />
-    <EntitySet Name="SubjectOfTeacher" EntityType="Self.SubjectOfTeacher" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-    <EntitySet Name="Task" EntityType="Self.Task" />
-    <EntitySet Name="TaskType" EntityType="Self.TaskType" />
-    <EntitySet Name="TypeOfExercise" EntityType="Self.TypeOfExercise" />
-    <EntitySet Name="User" EntityType="Self.User" />
-    <EntitySet Name="Variable" EntityType="Self.Variable" />
-    <EntitySet Name="VariableValue" EntityType="Self.VariableValue" />
-    <AssociationSet Name="FK_Exercise_TypeOfExercise" Association="Self.FK_Exercise_TypeOfExercise">
-      <End Role="TypeOfExercise" EntitySet="TypeOfExercise" />
-      <End Role="Exercise" EntitySet="Exercise" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FileInTask_Task" Association="Self.FK_FileInTask_Task">
-      <End Role="Task" EntitySet="Task" />
-      <End Role="FileInTask" EntitySet="FileInTask" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SubjectOfTeacher_Group" Association="Self.FK_SubjectOfTeacher_Group">
-      <End Role="Group" EntitySet="Group" />
-      <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Question_Task" Association="Self.FK_Question_Task">
-      <End Role="Task" EntitySet="Task" />
-      <End Role="Question" EntitySet="Question" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Variable_Question" Association="Self.FK_Variable_Question">
-      <End Role="Question" EntitySet="Question" />
-      <End Role="Variable" EntitySet="Variable" />
-    </AssociationSet>
-    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
-      <End Role="Role" EntitySet="Role" />
-      <End Role="User" EntitySet="User" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Student_User" Association="Self.FK_Student_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Student" EntitySet="Student" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SubjectOfTeacher_Subject" Association="Self.FK_SubjectOfTeacher_Subject">
-      <End Role="Subject" EntitySet="Subject" />
-      <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SubjectOfTeacher_User" Association="Self.FK_SubjectOfTeacher_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Task_SubjectOfTeacher" Association="Self.FK_Task_SubjectOfTeacher">
-      <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
-      <End Role="Task" EntitySet="Task" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Task_TaskType1" Association="Self.FK_Task_TaskType1">
-      <End Role="TaskType" EntitySet="TaskType" />
-      <End Role="Task" EntitySet="Task" />
-    </AssociationSet>
-    <AssociationSet Name="FK_VariableValue_Variable" Association="Self.FK_VariableValue_Variable">
-      <End Role="Variable" EntitySet="Variable" />
-      <End Role="VariableValue" EntitySet="VariableValue" />
-    </AssociationSet>
-    <AssociationSet Name="GroupOfStudent" Association="Self.GroupOfStudent">
-      <End Role="Group" EntitySet="Group" />
-      <End Role="Student" EntitySet="Student" />
-    </AssociationSet>
-    <AssociationSet Name="TaskOfExercise" Association="Self.TaskOfExercise">
-      <End Role="Exercise" EntitySet="Exercise" />
-      <End Role="Task" EntitySet="Task" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

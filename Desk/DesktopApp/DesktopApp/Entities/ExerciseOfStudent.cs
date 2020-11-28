@@ -12,14 +12,17 @@ namespace DesktopApp.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class VariableValue
+    public partial class ExerciseOfStudent
     {
+        public int ExerciseId { get; set; }
+        public int StudentId { get; set; }
         public int Id { get; set; }
-        public int VariableId { get; set; }
-        public string Value { get; set; }
-        public Nullable<int> StudentId { get; set; }
+        public string Mark { get; set; }
+        public string Comment { get; set; }
+        public int StatusId { get; set; }
     
+        public virtual Exercise Exercise { get; set; }
+        public virtual Status Status { get; set; }
         public virtual Student Student { get; set; }
-        public virtual Variable Variable { get; set; }
     }
 }

@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace DesktopApp
 {
@@ -26,7 +27,7 @@ namespace DesktopApp
         {
             InitializeComponent();
             AppData.MainFrame = MainFrame;
-            MainFrame.Navigate(new AutorizationPage());
+            //MainFrame.Navigate(new AutorizationPage());
         }
 
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
@@ -44,11 +45,37 @@ namespace DesktopApp
             if (page.Title == "Авторизация")
             {
                 BtnBack.Visibility = Visibility.Collapsed;
+                GridWithTopThings.Visibility = Visibility.Collapsed;
             }
             else
             {
+                GridWithTopThings.Visibility = Visibility.Visible;
                 BtnBack.Visibility = Visibility.Visible;
             }
+        }
+
+        public bool IsPressed { get; set; }
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            IsPressed = true;
+            this.DataContext = this;
+            DispatcherTimer dtCountDown = new DispatcherTimer()
+            {
+                Interval = new TimeSpan(0,0,0,0,250),
+            };
+            dtCountDown.Tick += DtCountDown_Tick;
+            dtCountDown.Start();
+        }
+
+        double _countToNavigate = 0;
+        private void DtCountDown_Tick(object sender, EventArgs e)
+        {
+            if (_countToNavigate == 0.25)
+            { 
+                MainFrame.Navigate(new AutorizationPage());
+                (sender as DispatcherTimer).Stop();
+            }
+            _countToNavigate+=0.25;
         }
     }
 }

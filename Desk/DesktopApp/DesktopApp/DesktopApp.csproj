@@ -231,6 +231,9 @@
     <Compile Include="Entities\Exercise.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\ExerciseOfStudent.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\FileInTask.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -256,6 +259,9 @@
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Role.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Status.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Student.cs">
@@ -342,7 +348,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
     <Folder Include="Window\" />
   </ItemGroup>
   <ItemGroup>
@@ -356,6 +361,9 @@
       <DependentUpon>ModelDB.edmx</DependentUpon>
       <LastGenOutput>ModelDB.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\IconArrowRight.png" />
+    <Resource Include="Resources\notAThiefBlack.png" />
+    <Resource Include="Resources\notAThiefWhite.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

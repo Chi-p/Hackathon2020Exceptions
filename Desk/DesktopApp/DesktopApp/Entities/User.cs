@@ -27,6 +27,7 @@ namespace DesktopApp.Entities
         public string Patronymic { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
+        public byte[] Picture { get; set; }
     
         public virtual Role Role { get; set; }
         public virtual Student Student { get; set; }
