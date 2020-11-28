@@ -3,51 +3,62 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
         xmlns:local="clr-namespace:DesktopApp.Windows"
         mc:Ignorable="d"
-        Title="AddTaskPage" Height="450" Width="800">
-    <Grid>
-        <StackPanel>
-            <TextBox x:Name="TbDescruption">
-                <TextBox.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem x:Name="MIAddValue" Click="MIAddValue_Click" Header="Добавить специальное значение"/>
-                    </ContextMenu>
-                </TextBox.ContextMenu>
-            </TextBox>
-            <ItemsControl Height="350" Name="IcValues">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel></WrapPanel>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding Key}"></TextBlock>
-                            <ItemsControl ItemsSource="{Binding }">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <WrapPanel Orientation="Horizontal">
-                                            <TextBox Width="150" TextWrapping="WrapWithOverflow"></TextBox>
-                                            <Button>Удалить</Button>
-                                        </WrapPanel>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                                <ItemsControl.Template>
-                                    <ControlTemplate>
-                                        <WrapPanel Orientation="Horizontal">
-                                            <ItemsPresenter />
-                                            <Button Content="Добавить значение" Click="BtnAddValue_Click" Name="BtnAddValue"/>
-                                        </WrapPanel>
-                                    </ControlTemplate>
-                                </ItemsControl.Template>
-                            </ItemsControl>
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-            <Button x:Name="BtnOk" Click="BtnOk_Click">Ок</Button>
-        </StackPanel>
+        Title="Добавить задачу" Height="450" Width="800" ResizeMode="NoResize" Style="{StaticResource MainWindow}">
+    <Grid Background="{StaticResource MainGradient}">
+        <Grid xf:Animations.Primary="{StaticResource FadeOutAndTranslateNormaly}" Margin="20" Background="{StaticResource MainHalfWhite}">
+            <StackPanel>
+                <TextBox Margin="5 10 5 0" Style="{StaticResource TextBoxStyled}" x:Name="TbDescruption">
+                    <TextBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem x:Name="MIAddValue" Click="MIAddValue_Click" Header="Добавить специальное значение"/>
+                        </ContextMenu>
+                    </TextBox.ContextMenu>
+                </TextBox>
+                <ScrollViewer Margin="5" Height="270">
+
+                    <ItemsControl  Name="IcValues">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel></WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="5">
+                                    <Border BorderBrush="{StaticResource MainAlmostBlack}"  BorderThickness="0 0 0 2" Margin="0 0 0 5">
+                                        <Grid >
+                                            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"  Style="{StaticResource TblockBold}" FontSize="18" Text="{Binding Key}"></TextBlock>
+                                            <Button Width="200" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource ButtonStyled}" FontSize="18" Content="Добавить значение" Click="BtnAddValue_Click" Name="BtnAddValue"/>
+                                        </Grid>
+                                    </Border>
+                                    <ItemsControl ItemsSource="{Binding }">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <WrapPanel Orientation="Horizontal">
+                                                    <TextBox VerticalAlignment="Center" FontSize="18" Style="{StaticResource TextBoxStyled}" Width="190" TextWrapping="WrapWithOverflow"></TextBox>
+                                                    <Button FontSize="16" Style="{StaticResource ButtonStyled}">Удалить</Button>
+                                                </WrapPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                        <ItemsControl.Template>
+                                            <ControlTemplate>
+                                                <WrapPanel Orientation="Horizontal">
+                                                    <ItemsPresenter />
+                                                    <!--<Button Style="{StaticResource ButtonStyled}" FontSize="18" Content="Добавить значение" Click="BtnAddValue_Click" Name="BtnAddValue"/>-->
+                                                </WrapPanel>
+                                            </ControlTemplate>
+                                        </ItemsControl.Template>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+                <Button Style="{StaticResource ButtonStyled}" x:Name="BtnOk" Click="BtnOk_Click">Ок</Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

@@ -3,38 +3,50 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
       xmlns:local="clr-namespace:DesktopApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CreateTestPage">
+      Title="Создание теста" Style="{StaticResource MainPage}">
 
     <Grid>
-        <ScrollViewer>
-            <StackPanel>
-                <ComboBox Name="CbTypeExercise" DisplayMemberPath="Name"></ComboBox>
-                <ItemsControl x:Name="IcTask" Height="200">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding Description}"></TextBlock>
-                                <StackPanel>
-                                    <Button x:Name="BtnEditTask" Click="BtnEditTask_Click"></Button>
-                                    <Button x:Name="BtnDeleteTask" Click="BtnDeleteTask_Click"></Button>
-                                </StackPanel>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                    <ItemsControl.Template>
-                        <ControlTemplate>
-                            <WrapPanel Orientation="Horizontal">
-                                <ItemsPresenter />
-                                <Button Content="Добавить задачу"  Name="BtnAddType" Click="BtnAddTask_Click"/>
-                            </WrapPanel>
-                        </ControlTemplate>
-                    </ItemsControl.Template>
-                </ItemsControl>
-                <Button x:Name="BtnOk" Click="BtnOk_Click">Ок</Button>
-            </StackPanel>
-        </ScrollViewer>
+        <Grid xf:Animations.Primary="{StaticResource FadeOutAndTranslateNormaly}" Margin="20" Background="{StaticResource MainHalfWhite}">
+
+            <ScrollViewer Margin="10 10">
+                <Grid>
+                    <StackPanel>
+                        <ComboBox Name="CbTypeExercise" DisplayMemberPath="Name"  Style="{DynamicResource ComboBoxStyled}"></ComboBox>
+                        <ComboBox Name="CbGroup" DisplayMemberPath="Name"  Style="{DynamicResource ComboBoxStyled}"></ComboBox>
+                        <ItemsControl x:Name="IcTask" HorizontalContentAlignment="Stretch" Margin="0" Height="200">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="{StaticResource MainAlmostBlack}" BorderThickness="2" CornerRadius="5" Margin="5">
+                                        <Grid>
+                                            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="{Binding Description}"></TextBlock>
+                                                <TextBlock Text="{Binding AmountOfVariables}"></TextBlock>
+                                            </StackPanel>
+                                            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal" Margin="5">
+                                                <Button x:Name="BtnEditTask" Width="150" Content="Редактировать" Height="40" Style="{StaticResource ButtonStyled}" Click="BtnEditTask_Click"></Button>
+                                                <Button x:Name="BtnDeleteTask" Width="150" Content="Удалить" Height="40" Style="{StaticResource ButtonStyled}" Click="BtnDeleteTask_Click"></Button>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.Template>
+                                <ControlTemplate>
+                                    <StackPanel>
+                                        <ItemsPresenter />
+                                        <Button  Height="40" Style="{StaticResource ButtonStyled}" Content="Добавить задачу"  Name="BtnAddType" Click="BtnAddTask_Click"/>
+                                    </StackPanel>
+                                </ControlTemplate>
+                            </ItemsControl.Template>
+                        </ItemsControl>
+                    </StackPanel>
+                    <Button x:Name="BtnOk" VerticalAlignment="Bottom" Height="40" Style="{StaticResource ButtonStyled}" Click="BtnOk_Click">Сохранить</Button>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Page>

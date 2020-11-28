@@ -8,7 +8,7 @@
       xmlns:local="clr-namespace:DesktopApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ListOfExerciseAndStudents">
+      Title="Список заданий" Style="{StaticResource MainPage}">
 
     <Grid>
         <ItemsControl Name="AnimLvExercise" xf:Animations.Primary="{StaticResource FadeOutAndTranslateNormaly}" Background="{StaticResource MainHalfWhite}" Margin="10" HorizontalContentAlignment="Stretch">
