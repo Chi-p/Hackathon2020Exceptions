@@ -28,5 +28,27 @@ namespace DesktopApp
             AppData.MainFrame = MainFrame;
             MainFrame.Navigate(new AutorizationPage());
         }
+
+        private void BtnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Login = "";
+            Properties.Settings.Default.Password = "";
+            Properties.Settings.Default.Save();
+            AppData.user = null;
+            AppData.MainFrame.Navigate(new AutorizationPage());
+        }
+
+        private void MainFrame_ContentRendered(object sender, EventArgs e)
+        {
+            var page = AppData.MainFrame.Content as Page;
+            if (page.Title == "Авторизация")
+            {
+                BtnBack.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                BtnBack.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

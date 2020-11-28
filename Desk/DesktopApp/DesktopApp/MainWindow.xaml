@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Frame x:Name="MainFrame"></Frame>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Frame ContentRendered="MainFrame_ContentRendered" x:Name="MainFrame"></Frame>
+        <Button Grid.Row="1" x:Name="BtnLogout" Click="BtnLogout_Click"></Button>
+        <Button Grid.Row="2" x:Name="BtnBack" Click="BtnLogout_Click">Назад</Button>
     </Grid>
 </Window>

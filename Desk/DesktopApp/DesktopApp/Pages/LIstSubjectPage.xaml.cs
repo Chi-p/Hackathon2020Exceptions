@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesktopApp.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace DesktopApp.Pages
         public LIstSubjectPage()
         {
             InitializeComponent();
+            AnimLvSubject.ItemsSource = AppData.Context.SubjectOfTeacher.Where(p => p.TeacherId == AppData.user.Id).ToList();
         }
     }
 }

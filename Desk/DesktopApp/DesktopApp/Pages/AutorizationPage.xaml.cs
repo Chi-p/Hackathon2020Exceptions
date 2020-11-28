@@ -43,11 +43,28 @@ namespace DesktopApp.Pages
                 MessageBox.Show("Введите пароль", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            //var User = AppData.Context.User.ToList().FirstOrDefault(p=>p.Login==TbLogin && p.Password == PbPassword);
-            // if(User!=null)
-            //{
-
-            //}
+            var user = AppData.Context.User.ToList().FirstOrDefault(p => p.Login == TbLogin.Text && p.Password == PbPassword.Password);
+            if (user != null)
+            {
+                switch (user.RoleId)
+                {
+                    case 1:
+                        if (CbIsRemember.IsChecked == true)
+                        {
+                            Properties.Settings.Default.Login = user.Login;
+                            Properties.Settings.Default.Password = user.Password;
+                            Properties.Settings.Default.Save();
+                        }
+                        AppData.user = user;
+                        AppData.MainFrame.Navigate(new LIstSubjectPage());
+                        break;
+                    case 2:
+                        MessageBox.Show("Десктопная версия для студентов пока не доступна!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

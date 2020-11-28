@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesktopApp.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,7 @@ namespace DesktopApp.Classes
     public static class AppData
     {
         public static Frame MainFrame;
+        public static NotAThiefDataBaseEntities Context = new NotAThiefDataBaseEntities();
+        public static User user;
     }
 }

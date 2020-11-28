@@ -7,11 +7,15 @@
       xmlns:local="clr-namespace:DesktopApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="LIstSubjectPage">
+      Title="Список пар и групп">
 
     <Grid>
-        <xfc:AnimatedListView>
-            
-        </xfc:AnimatedListView>  
+        <xfc:AnimatedListView Name="AnimLvSubject">
+            <xfc:AnimatedListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Subject.Name}"></TextBlock>
+                </DataTemplate>
+            </xfc:AnimatedListView.ItemTemplate>
+        </xfc:AnimatedListView>
     </Grid>
 </Page>

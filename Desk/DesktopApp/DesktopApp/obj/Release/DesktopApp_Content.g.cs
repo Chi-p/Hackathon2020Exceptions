@@ -9,5 +9,6 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/modeldb.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/modeldb.tt")]
 
 
