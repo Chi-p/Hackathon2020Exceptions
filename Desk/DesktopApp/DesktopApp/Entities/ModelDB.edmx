@@ -23,6 +23,7 @@
           <Property Name="Mark" Type="nvarchar" MaxLength="5" />
           <Property Name="Comment" Type="nvarchar(max)" />
           <Property Name="StatusId" Type="int" Nullable="false" />
+          <Property Name="SubjectOfTeacherId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Group">
           <Key>
@@ -94,7 +95,6 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="SubjectOfTeacherId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TaskAnswer">
           <Key>
@@ -205,6 +205,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ExerciseOfStudent_SubjectOfTeacher">
+          <End Role="SubjectOfTeacher" Type="Self.SubjectOfTeacher" Multiplicity="1" />
+          <End Role="ExerciseOfStudent" Type="Self.ExerciseOfStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubjectOfTeacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExerciseOfStudent">
+              <PropertyRef Name="SubjectOfTeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_GroupOfStudent_Group">
           <End Role="Group" Type="Self.Group" Multiplicity="1" />
           <End Role="GroupOfStudent" Type="Self.GroupOfStudent" Multiplicity="*" />
@@ -274,18 +286,6 @@
             </Principal>
             <Dependent Role="SubjectOfTeacher">
               <PropertyRef Name="TeacherId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Task_SubjectOfTeacher">
-          <End Role="SubjectOfTeacher" Type="Self.SubjectOfTeacher" Multiplicity="1" />
-          <End Role="Task" Type="Self.Task" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SubjectOfTeacher">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Task">
-              <PropertyRef Name="SubjectOfTeacherId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -432,6 +432,10 @@
             <End Role="Student" EntitySet="Student" />
             <End Role="ExerciseOfStudent" EntitySet="ExerciseOfStudent" />
           </AssociationSet>
+          <AssociationSet Name="FK_ExerciseOfStudent_SubjectOfTeacher" Association="Self.FK_ExerciseOfStudent_SubjectOfTeacher">
+            <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
+            <End Role="ExerciseOfStudent" EntitySet="ExerciseOfStudent" />
+          </AssociationSet>
           <AssociationSet Name="FK_GroupOfStudent_Group" Association="Self.FK_GroupOfStudent_Group">
             <End Role="Group" EntitySet="Group" />
             <End Role="GroupOfStudent" EntitySet="GroupOfStudent" />
@@ -455,10 +459,6 @@
           <AssociationSet Name="FK_SubjectOfTeacher_User" Association="Self.FK_SubjectOfTeacher_User">
             <End Role="User" EntitySet="User" />
             <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Task_SubjectOfTeacher" Association="Self.FK_Task_SubjectOfTeacher">
-            <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
-            <End Role="Task" EntitySet="Task" />
           </AssociationSet>
           <AssociationSet Name="FK_TaskAnswer_Student" Association="Self.FK_TaskAnswer_Student">
             <End Role="Student" EntitySet="Student" />
@@ -533,6 +533,10 @@
             <End Role="Student" EntitySet="Student" />
             <End Role="ExerciseOfStudent" EntitySet="ExerciseOfStudent" />
           </AssociationSet>
+          <AssociationSet Name="FK_ExerciseOfStudent_SubjectOfTeacher" Association="NotAThiefDataBaseModel.FK_ExerciseOfStudent_SubjectOfTeacher">
+            <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
+            <End Role="ExerciseOfStudent" EntitySet="ExerciseOfStudent" />
+          </AssociationSet>
           <AssociationSet Name="FK_SubjectOfTeacher_Group" Association="NotAThiefDataBaseModel.FK_SubjectOfTeacher_Group">
             <End Role="Group" EntitySet="Group" />
             <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
@@ -556,10 +560,6 @@
           <AssociationSet Name="FK_SubjectOfTeacher_User" Association="NotAThiefDataBaseModel.FK_SubjectOfTeacher_User">
             <End Role="User" EntitySet="User" />
             <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Task_SubjectOfTeacher" Association="NotAThiefDataBaseModel.FK_Task_SubjectOfTeacher">
-            <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
-            <End Role="Task" EntitySet="Task" />
           </AssociationSet>
           <AssociationSet Name="FK_TaskAnswer_Task" Association="NotAThiefDataBaseModel.FK_TaskAnswer_Task">
             <End Role="Task" EntitySet="Task" />
@@ -607,9 +607,11 @@
           <Property Name="Mark" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <Property Name="SubjectOfTeacherId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Exercise" Relationship="NotAThiefDataBaseModel.FK_ExerciseOfStudent_Exercise" FromRole="ExerciseOfStudent" ToRole="Exercise" />
           <NavigationProperty Name="Status" Relationship="NotAThiefDataBaseModel.FK_ExerciseOfStudent_Status" FromRole="ExerciseOfStudent" ToRole="Status" />
           <NavigationProperty Name="Student" Relationship="NotAThiefDataBaseModel.FK_ExerciseOfStudent_Student" FromRole="ExerciseOfStudent" ToRole="Student" />
+          <NavigationProperty Name="SubjectOfTeacher" Relationship="NotAThiefDataBaseModel.FK_ExerciseOfStudent_SubjectOfTeacher" FromRole="ExerciseOfStudent" ToRole="SubjectOfTeacher" />
         </EntityType>
         <EntityType Name="Group">
           <Key>
@@ -666,10 +668,10 @@
           <Property Name="TeacherId" Type="Int32" Nullable="false" />
           <Property Name="GroupId" Type="Int32" Nullable="false" />
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ExerciseOfStudent" Relationship="NotAThiefDataBaseModel.FK_ExerciseOfStudent_SubjectOfTeacher" FromRole="SubjectOfTeacher" ToRole="ExerciseOfStudent" />
           <NavigationProperty Name="Group" Relationship="NotAThiefDataBaseModel.FK_SubjectOfTeacher_Group" FromRole="SubjectOfTeacher" ToRole="Group" />
           <NavigationProperty Name="Subject" Relationship="NotAThiefDataBaseModel.FK_SubjectOfTeacher_Subject" FromRole="SubjectOfTeacher" ToRole="Subject" />
           <NavigationProperty Name="User" Relationship="NotAThiefDataBaseModel.FK_SubjectOfTeacher_User" FromRole="SubjectOfTeacher" ToRole="User" />
-          <NavigationProperty Name="Task" Relationship="NotAThiefDataBaseModel.FK_Task_SubjectOfTeacher" FromRole="SubjectOfTeacher" ToRole="Task" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -687,8 +689,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SubjectOfTeacherId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="SubjectOfTeacher" Relationship="NotAThiefDataBaseModel.FK_Task_SubjectOfTeacher" FromRole="Task" ToRole="SubjectOfTeacher" />
           <NavigationProperty Name="TaskAnswer" Relationship="NotAThiefDataBaseModel.FK_TaskAnswer_Task" FromRole="Task" ToRole="TaskAnswer" />
           <NavigationProperty Name="Variable" Relationship="NotAThiefDataBaseModel.FK_Variable_Task" FromRole="Task" ToRole="Variable" />
           <NavigationProperty Name="Exercise" Relationship="NotAThiefDataBaseModel.TaskOfExercise" FromRole="Task" ToRole="Exercise" />
@@ -796,6 +796,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ExerciseOfStudent_SubjectOfTeacher">
+          <End Type="NotAThiefDataBaseModel.SubjectOfTeacher" Role="SubjectOfTeacher" Multiplicity="1" />
+          <End Type="NotAThiefDataBaseModel.ExerciseOfStudent" Role="ExerciseOfStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubjectOfTeacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExerciseOfStudent">
+              <PropertyRef Name="SubjectOfTeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SubjectOfTeacher_Group">
           <End Type="NotAThiefDataBaseModel.Group" Role="Group" Multiplicity="1" />
           <End Type="NotAThiefDataBaseModel.SubjectOfTeacher" Role="SubjectOfTeacher" Multiplicity="*" />
@@ -868,18 +880,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Task_SubjectOfTeacher">
-          <End Type="NotAThiefDataBaseModel.SubjectOfTeacher" Role="SubjectOfTeacher" Multiplicity="1" />
-          <End Type="NotAThiefDataBaseModel.Task" Role="Task" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SubjectOfTeacher">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Task">
-              <PropertyRef Name="SubjectOfTeacherId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TaskAnswer_Task">
           <End Type="NotAThiefDataBaseModel.Task" Role="Task" Multiplicity="1" />
           <End Type="NotAThiefDataBaseModel.TaskAnswer" Role="TaskAnswer" Multiplicity="*" />
@@ -946,6 +946,7 @@
           <EntitySetMapping Name="ExerciseOfStudent">
             <EntityTypeMapping TypeName="NotAThiefDataBaseModel.ExerciseOfStudent">
               <MappingFragment StoreEntitySet="ExerciseOfStudent">
+                <ScalarProperty Name="SubjectOfTeacherId" ColumnName="SubjectOfTeacherId" />
                 <ScalarProperty Name="StatusId" ColumnName="StatusId" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="Mark" ColumnName="Mark" />
@@ -1021,7 +1022,6 @@
           <EntitySetMapping Name="Task">
             <EntityTypeMapping TypeName="NotAThiefDataBaseModel.Task">
               <MappingFragment StoreEntitySet="Task">
-                <ScalarProperty Name="SubjectOfTeacherId" ColumnName="SubjectOfTeacherId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

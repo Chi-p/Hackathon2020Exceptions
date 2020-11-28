@@ -65,7 +65,6 @@ D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\Pages\ListOfExerciseAndStudents
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\Pages\LIstSubjectPage.g.cs
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\Pages\MainMenuTeacherPage.g.cs
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\Windows\AddTaskPage.g.cs
-D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\Windows\AddValueWindow.g.cs
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\App.g.cs
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp_Content.g.cs
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp_MarkupCompile.cache
@@ -78,7 +77,6 @@ D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\Pages\ListOfExerciseAndStudents
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\Pages\LIstSubjectPage.baml
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\Pages\MainMenuTeacherPage.baml
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\Windows\AddTaskPage.baml
-D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\Windows\AddValueWindow.baml
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp.g.resources
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp.Properties.Resources.resources
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.GenerateResource.cache
@@ -87,4 +85,3 @@ D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp.sourcelink.json
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.CopyComplete
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp.exe
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp.pdb
-D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csprojAssemblyReference.cache

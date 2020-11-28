@@ -24,11 +24,11 @@ namespace DesktopApp.Windows
         private List<VariableValue> _variableValueList = new List<VariableValue>();
         private List<Variable> _variableList = new List<Variable>();
         private VariableValue _variableValue;
+        private Entities.Task _task;
         private int _varCount = 0;
         public AddTaskPage()
         {
             InitializeComponent();
-
         }
         private void MIAddValue_Click(object sender, RoutedEventArgs e)
         {
@@ -55,7 +55,49 @@ namespace DesktopApp.Windows
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
+            _task = new Entities.Task
+            {
+                Description = TbDescruption.Text,
+                
+            };
+            foreach (var item in _variableList)
+            {
+                //AppData.Context.Variable.Add(new Variable
+                //{
+                //    Id = 0,
+                //    Name = item.Name,
+                //    Task = ,
 
+                //});
+                AppData.Context.SaveChanges();
+            }
+            var studentList = AppData.Context.Student.Local.ToList();
+
+            //var student = new Student();
+            //var exercise = new Exercise();
+            //foreach (var item in exercise.Task)
+            //{
+            //    foreach (var variable in item.Variable.ToList())
+            //    {
+            //        student.VariableValue.Add(variable.VariableValue.ToList()[0]);
+            //    }
+            //}
+
+            Random random = new Random();
+            foreach (var item in _variableValueList)
+            {
+                if (!String.IsNullOrWhiteSpace(item.Value))
+                {
+                    var variable = new VariableValue
+                    {
+                        Id = 0,
+                        Value = item.Value,
+                        Variable = item.Variable,
+                    };
+                    AppData.Context.SaveChanges();
+                }
+
+            }
         }
 
         private void BtnAddValue_Click(object sender, RoutedEventArgs e)

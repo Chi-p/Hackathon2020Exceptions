@@ -24,9 +24,7 @@ namespace DesktopApp.Entities
     
         public int Id { get; set; }
         public string Description { get; set; }
-        public int SubjectOfTeacherId { get; set; }
     
-        public virtual SubjectOfTeacher SubjectOfTeacher { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TaskAnswer> TaskAnswer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
