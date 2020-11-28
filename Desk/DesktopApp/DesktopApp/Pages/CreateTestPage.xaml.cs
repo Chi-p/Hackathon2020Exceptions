@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesktopApp.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,8 @@ namespace DesktopApp.Pages
 
         private void BtnAddTask_Click(object sender, RoutedEventArgs e)
         {
-
+            AddTaskPage addTaskWindow = new AddTaskPage();
+            addTaskWindow.ShowDialog();
         }
     }
 }

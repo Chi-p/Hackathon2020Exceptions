@@ -8,8 +8,8 @@
         Title="AddTaskPage" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <ComboBox Name="CbTypeOfTask" SelectionChanged="CbTypeOfTask_SelectionChanged"></ComboBox>
-            <TextBox x:Name="TbName"></TextBox>
+            <TextBox x:Name="TbDescruption"></TextBox>
+            
         </StackPanel>
     </Grid>
 </Window>

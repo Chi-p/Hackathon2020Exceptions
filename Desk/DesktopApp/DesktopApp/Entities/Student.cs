@@ -18,7 +18,9 @@ namespace DesktopApp.Entities
         public Student()
         {
             this.ExerciseOfStudent = new HashSet<ExerciseOfStudent>();
+            this.TaskAnswer = new HashSet<TaskAnswer>();
             this.Group = new HashSet<Group>();
+            this.VariableValue = new HashSet<VariableValue>();
         }
     
         public int Id { get; set; }
@@ -29,6 +31,10 @@ namespace DesktopApp.Entities
         public virtual ICollection<ExerciseOfStudent> ExerciseOfStudent { get; set; }
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TaskAnswer> TaskAnswer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Group> Group { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VariableValue> VariableValue { get; set; }
     }
 }
