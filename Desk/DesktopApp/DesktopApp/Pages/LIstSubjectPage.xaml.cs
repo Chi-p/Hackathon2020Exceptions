@@ -1,6 +1,4 @@
-﻿using DesktopApp.Classes;
-using DesktopApp.Pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DesktopApp
+namespace DesktopApp.Pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LIstSubjectPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LIstSubjectPage : Page
     {
-        public MainWindow()
+        public LIstSubjectPage()
         {
             InitializeComponent();
-            AppData.MainFrame = MainFrame;
-            MainFrame.Navigate(new AutorizationPage());
         }
     }
 }
