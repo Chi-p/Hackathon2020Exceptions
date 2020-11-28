@@ -6,12 +6,12 @@
       xmlns:local="clr-namespace:DesktopApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AutorizationPage">
+      Title="AutorizationPage" Style="{StaticResource MainPage}">
 
-    <Grid>
+    <Grid >
         
-        <StackPanel>
-            <TextBox x:Name="TbLogin"></TextBox>
+        <StackPanel Visibility="Hidden">
+            <TextBox x:Name="TbLogin" ></TextBox>
             <PasswordBox x:Name="PbPassword"></PasswordBox>
             <Button x:Name="BtnOk" Height="50" Click="BtnOk_Click"></Button>
         </StackPanel>
