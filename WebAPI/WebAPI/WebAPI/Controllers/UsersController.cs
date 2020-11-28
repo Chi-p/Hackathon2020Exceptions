@@ -49,6 +49,19 @@ namespace WebAPI.Controllers
             return BadRequest(ModelState);
         }
 
+        // GET: api/Users/5
+        [ResponseType(typeof(User))]
+        public IHttpActionResult GetUser(int Id)
+        {
+            User user = db.User.ToList().FirstOrDefault(i => i.Id == Id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(new StudentModel(user));
+        }
+
         // PUT: api/Users/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutUser(int id, User user)

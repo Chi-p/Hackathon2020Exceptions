@@ -17,22 +17,20 @@ namespace WebAPI.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Task()
         {
-            this.FileInTask = new HashSet<FileInTask>();
-            this.Question = new HashSet<Question>();
+            this.TaskAnswer = new HashSet<TaskAnswer>();
+            this.Variable = new HashSet<Variable>();
             this.Exercise = new HashSet<Exercise>();
         }
     
         public int Id { get; set; }
-        public int TypeOfTask { get; set; }
-        public string Name { get; set; }
+        public string Description { get; set; }
         public int SubjectOfTeacherId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FileInTask> FileInTask { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Question> Question { get; set; }
         public virtual SubjectOfTeacher SubjectOfTeacher { get; set; }
-        public virtual TaskType TaskType { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TaskAnswer> TaskAnswer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Variable> Variable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exercise> Exercise { get; set; }
     }

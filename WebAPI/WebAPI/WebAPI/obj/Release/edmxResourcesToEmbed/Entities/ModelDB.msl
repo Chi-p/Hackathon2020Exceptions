@@ -10,12 +10,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="FileInTask">
-      <EntityTypeMapping TypeName="NotAThiefDataBaseModel.FileInTask">
-        <MappingFragment StoreEntitySet="FileInTask">
-          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
-          <ScalarProperty Name="FileBit" ColumnName="FileBit" />
+    <EntitySetMapping Name="ExerciseOfStudent">
+      <EntityTypeMapping TypeName="NotAThiefDataBaseModel.ExerciseOfStudent">
+        <MappingFragment StoreEntitySet="ExerciseOfStudent">
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Mark" ColumnName="Mark" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="ExerciseId" ColumnName="ExerciseId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -27,17 +30,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Question">
-      <EntityTypeMapping TypeName="NotAThiefDataBaseModel.Question">
-        <MappingFragment StoreEntitySet="Question">
-          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="NotAThiefDataBaseModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Role">
-      <EntityTypeMapping TypeName="NotAThiefDataBaseModel.Role">
-        <MappingFragment StoreEntitySet="Role">
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="NotAThiefDataBaseModel.Status">
+        <MappingFragment StoreEntitySet="Status">
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
@@ -55,6 +58,7 @@
     <EntitySetMapping Name="Subject">
       <EntityTypeMapping TypeName="NotAThiefDataBaseModel.Subject">
         <MappingFragment StoreEntitySet="Subject">
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
@@ -85,17 +89,17 @@
       <EntityTypeMapping TypeName="NotAThiefDataBaseModel.Task">
         <MappingFragment StoreEntitySet="Task">
           <ScalarProperty Name="SubjectOfTeacherId" ColumnName="SubjectOfTeacherId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="TypeOfTask" ColumnName="TypeOfTask" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TaskType">
-      <EntityTypeMapping TypeName="NotAThiefDataBaseModel.TaskType">
-        <MappingFragment StoreEntitySet="TaskType">
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
+    <EntitySetMapping Name="TaskAnswer">
+      <EntityTypeMapping TypeName="NotAThiefDataBaseModel.TaskAnswer">
+        <MappingFragment StoreEntitySet="TaskAnswer">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -110,6 +114,7 @@
     <EntitySetMapping Name="User">
       <EntityTypeMapping TypeName="NotAThiefDataBaseModel.User">
         <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Login" ColumnName="Login" />
           <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
@@ -123,8 +128,8 @@
     <EntitySetMapping Name="Variable">
       <EntityTypeMapping TypeName="NotAThiefDataBaseModel.Variable">
         <MappingFragment StoreEntitySet="Variable">
-          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -152,6 +157,14 @@
       </EndProperty>
       <EndProperty Name="Exercise">
         <ScalarProperty Name="Id" ColumnName="ExerciseId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ValueOfStudent" TypeName="NotAThiefDataBaseModel.ValueOfStudent" StoreEntitySet="ValueOfStudent">
+      <EndProperty Name="VariableValue">
+        <ScalarProperty Name="Id" ColumnName="ValueId" />
+      </EndProperty>
+      <EndProperty Name="Student">
+        <ScalarProperty Name="Id" ColumnName="StudentId" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

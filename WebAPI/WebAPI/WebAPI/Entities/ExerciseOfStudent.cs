@@ -12,12 +12,17 @@ namespace WebAPI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class FileInTask
+    public partial class ExerciseOfStudent
     {
+        public int ExerciseId { get; set; }
+        public int StudentId { get; set; }
         public int Id { get; set; }
-        public byte[] FileBit { get; set; }
-        public int TaskId { get; set; }
+        public string Mark { get; set; }
+        public string Comment { get; set; }
+        public int StatusId { get; set; }
     
-        public virtual Task Task { get; set; }
+        public virtual Exercise Exercise { get; set; }
+        public virtual Status Status { get; set; }
+        public virtual Student Student { get; set; }
     }
 }

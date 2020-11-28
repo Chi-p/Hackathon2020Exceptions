@@ -21,10 +21,10 @@ namespace WebAPI.Entities
         }
     
         public int Id { get; set; }
+        public int TaskId { get; set; }
         public string Name { get; set; }
-        public int QuestionId { get; set; }
     
-        public virtual Question Question { get; set; }
+        public virtual Task Task { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VariableValue> VariableValue { get; set; }
     }

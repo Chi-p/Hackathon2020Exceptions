@@ -12,18 +12,13 @@ namespace WebAPI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class TaskType
+    public partial class TaskAnswer
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TaskType()
-        {
-            this.Task = new HashSet<Task>();
-        }
+        public int TaskId { get; set; }
+        public string Answer { get; set; }
+        public int StudentId { get; set; }
     
-        public int Id { get; set; }
-        public string Name { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Task> Task { get; set; }
+        public virtual Student Student { get; set; }
+        public virtual Task Task { get; set; }
     }
 }

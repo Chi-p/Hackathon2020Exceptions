@@ -12,19 +12,18 @@ namespace WebAPI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Question
+    public partial class Status
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Question()
+        public Status()
         {
-            this.Variable = new HashSet<Variable>();
+            this.ExerciseOfStudent = new HashSet<ExerciseOfStudent>();
         }
     
         public int Id { get; set; }
-        public int TaskId { get; set; }
+        public string Name { get; set; }
     
-        public virtual Task Task { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Variable> Variable { get; set; }
+        public virtual ICollection<ExerciseOfStudent> ExerciseOfStudent { get; set; }
     }
 }

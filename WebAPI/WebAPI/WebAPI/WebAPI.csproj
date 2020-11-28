@@ -162,13 +162,15 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ExerciseOfStudentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Entities\Exercise.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\FileInTask.cs">
+    <Compile Include="Entities\ExerciseOfStudent.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Group.cs">
@@ -189,10 +191,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Question.cs">
+    <Compile Include="Entities\Role.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Role.cs">
+    <Compile Include="Entities\Status.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Student.cs">
@@ -210,7 +212,7 @@
     <Compile Include="Entities\Task.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\TaskType.cs">
+    <Compile Include="Entities\TaskAnswer.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\TypeOfExercise.cs">
@@ -228,7 +230,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ExerciseOfStudentModel.cs" />
     <Compile Include="Models\StudentModel.cs" />
+    <Compile Include="Models\TaskModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
