@@ -27,9 +27,7 @@ namespace DesktopApp.Entities
     
         public virtual DbSet<Exercise> Exercise { get; set; }
         public virtual DbSet<ExerciseOfStudent> ExerciseOfStudent { get; set; }
-        public virtual DbSet<FileInTask> FileInTask { get; set; }
         public virtual DbSet<Group> Group { get; set; }
-        public virtual DbSet<Question> Question { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<Student> Student { get; set; }
@@ -37,7 +35,7 @@ namespace DesktopApp.Entities
         public virtual DbSet<SubjectOfTeacher> SubjectOfTeacher { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Task> Task { get; set; }
-        public virtual DbSet<TaskType> TaskType { get; set; }
+        public virtual DbSet<TaskAnswer> TaskAnswer { get; set; }
         public virtual DbSet<TypeOfExercise> TypeOfExercise { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Variable> Variable { get; set; }

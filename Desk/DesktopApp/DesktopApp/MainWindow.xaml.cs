@@ -27,18 +27,6 @@ namespace DesktopApp
         {
             InitializeComponent();
             AppData.MainFrame = MainFrame;
-            if (!String.IsNullOrWhiteSpace(Properties.Settings.Default.Login) && !String.IsNullOrWhiteSpace(Properties.Settings.Default.Password))
-            {
-                AppData.user = AppData.Context.User.ToList().FirstOrDefault(p => p.Password == Properties.Settings.Default.Password && p.Login == Properties.Settings.Default.Login);
-                if (AppData.user != null)
-                {
-                    AppData.MainFrame.Navigate(new LIstSubjectPage());
-                }
-                else
-                {
-                    MainFrame.Navigate(new MainMenuTeacherPage());
-                }
-            }
         }
 
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
@@ -54,6 +42,7 @@ namespace DesktopApp
         {
             var page = AppData.MainFrame.Content as Page;
             if (page.Title == "Авторизация")
+            {
                 BtnBack.Visibility = Visibility.Collapsed;
                 GridWithTopThings.Visibility = Visibility.Collapsed;
             }
@@ -61,6 +50,7 @@ namespace DesktopApp
             {
                 GridWithTopThings.Visibility = Visibility.Visible;
                 BtnBack.Visibility = Visibility.Visible;
+            }
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
@@ -76,7 +66,7 @@ namespace DesktopApp
             this.DataContext = this;
             DispatcherTimer dtCountDown = new DispatcherTimer()
             {
-                Interval = new TimeSpan(0,0,0,0,250),
+                Interval = new TimeSpan(0, 0, 0, 0, 250),
             };
             dtCountDown.Tick += DtCountDown_Tick;
             dtCountDown.Start();
@@ -86,11 +76,23 @@ namespace DesktopApp
         private void DtCountDown_Tick(object sender, EventArgs e)
         {
             if (_countToNavigate == 0.25)
-            { 
-                MainFrame.Navigate(new AutorizationPage());
+            {
+                if (!String.IsNullOrWhiteSpace(Properties.Settings.Default.Login) && !String.IsNullOrWhiteSpace(Properties.Settings.Default.Password))
+                {
+                    AppData.user = AppData.Context.User.ToList().FirstOrDefault(p => p.Password == Properties.Settings.Default.Password && p.Login == Properties.Settings.Default.Login);
+                    if (AppData.user != null)
+                    {
+                        AppData.MainFrame.Navigate(new LIstSubjectPage());
+                    }
+                    else
+                    {
+                        MainFrame.Navigate(new MainMenuTeacherPage());
+                    }
+                    GridForAnimations.Visibility = Visibility.Collapsed;
+                }
                 (sender as DispatcherTimer).Stop();
             }
-            _countToNavigate+=0.25;
+            _countToNavigate += 0.25;
         }
     }
 }

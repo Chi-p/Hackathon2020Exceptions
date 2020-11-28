@@ -60,13 +60,21 @@ namespace DesktopApp {
         
         #line 17 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button BtnLogout;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 18 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnBack;
         
         #line default
         #line hidden
         
         
-        #line 19 "..\..\MainWindow.xaml"
+        #line 20 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock TblName;
         
@@ -74,7 +82,7 @@ namespace DesktopApp {
         #line hidden
         
         
-        #line 22 "..\..\MainWindow.xaml"
+        #line 23 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid GridForAnimations;
         
@@ -124,23 +132,32 @@ namespace DesktopApp {
             this.GridWithTopThings = ((System.Windows.Controls.Grid)(target));
             return;
             case 3:
-            this.BtnBack = ((System.Windows.Controls.Button)(target));
+            this.BtnLogout = ((System.Windows.Controls.Button)(target));
             
             #line 17 "..\..\MainWindow.xaml"
-            this.BtnBack.Click += new System.Windows.RoutedEventHandler(this.BtnLogout_Click);
+            this.BtnLogout.Click += new System.Windows.RoutedEventHandler(this.BtnLogout_Click);
             
             #line default
             #line hidden
             return;
             case 4:
-            this.TblName = ((System.Windows.Controls.TextBlock)(target));
+            this.BtnBack = ((System.Windows.Controls.Button)(target));
+            
+            #line 18 "..\..\MainWindow.xaml"
+            this.BtnBack.Click += new System.Windows.RoutedEventHandler(this.BtnBack_Click);
+            
+            #line default
+            #line hidden
             return;
             case 5:
-            this.GridForAnimations = ((System.Windows.Controls.Grid)(target));
+            this.TblName = ((System.Windows.Controls.TextBlock)(target));
             return;
             case 6:
+            this.GridForAnimations = ((System.Windows.Controls.Grid)(target));
+            return;
+            case 7:
             
-            #line 26 "..\..\MainWindow.xaml"
+            #line 27 "..\..\MainWindow.xaml"
             ((System.Windows.Controls.Image)(target)).MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(this.Image_MouseLeftButtonDown);
             
             #line default

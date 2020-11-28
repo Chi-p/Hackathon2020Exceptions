@@ -14,12 +14,18 @@ namespace DesktopApp.Entities
     
     public partial class VariableValue
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public VariableValue()
+        {
+            this.Student = new HashSet<Student>();
+        }
+    
         public int Id { get; set; }
         public int VariableId { get; set; }
         public string Value { get; set; }
-        public Nullable<int> StudentId { get; set; }
     
-        public virtual Student Student { get; set; }
         public virtual Variable Variable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Student> Student { get; set; }
     }
 }

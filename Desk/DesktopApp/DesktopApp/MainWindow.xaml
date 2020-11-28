@@ -12,14 +12,15 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Frame Grid.Row="1" ContentRendered="MainFrame_ContentRendered" x:Name="MainFrame"></Frame>
+        <Frame NavigationUIVisibility="Hidden" Grid.Row="1" ContentRendered="MainFrame_ContentRendered" x:Name="MainFrame"></Frame>
         <Grid Visibility="Collapsed" Name="GridWithTopThings">
-            <Button Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="BtnBack" Background="Transparent"  BorderBrush="Transparent" Style="{StaticResource ButtonStyled}"  Click="BtnLogout_Click">🠔</Button>
+            <Button Click="BtnLogout_Click" HorizontalAlignment="Right" x:Name="BtnLogout">ВЫХОД</Button>
+            <Button Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="BtnBack" Background="Transparent"  BorderBrush="Transparent" Style="{StaticResource ButtonStyled}"  Click="BtnBack_Click">🠔</Button>
             <Image Source="Resources/notAThiefWhite.png" HorizontalAlignment="Left" VerticalAlignment="Center" Height="60" Margin="40 5 5 5"></Image>
             <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource TblockBold}" Name="TblName" Margin="5 5 50 5"></TextBlock>
         </Grid>
 
-        <Grid Background="{StaticResource MainAlmostBlack}" Opacity="0" xf:Animations.StartWith="{StaticResource FadeIn}" xf:Animations.PrimaryBinding="{Binding IsPressed}" xf:Animations.Primary="{StaticResource FadeOutAndTranslate}" Grid.RowSpan="2" Name="GridForAnimations">
+        <Grid  Background="{StaticResource MainAlmostBlack}" Opacity="0" xf:Animations.StartWith="{StaticResource FadeIn}" xf:Animations.PrimaryBinding="{Binding IsPressed}" xf:Animations.Primary="{StaticResource FadeOutAndTranslate}" Grid.RowSpan="2" Name="GridForAnimations">
             <Ellipse Width="2000" Margin="-500 -500 0 150" Fill="{StaticResource MainPageGradient}"></Ellipse>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Image Height="100" Source="Resources/notAThiefBlack.png"></Image>
