@@ -77,7 +77,6 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Picture" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="SubjectOfTeacher">
     <Key>
@@ -140,7 +139,6 @@
     <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
     <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Picture" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Variable">
     <Key>
@@ -157,7 +155,6 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="VariableId" Type="int" Nullable="false" />
     <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="StudentId" Type="int" />
   </EntityType>
   <Association Name="FK_Exercise_TypeOfExercise">
     <End Role="TypeOfExercise" Type="Self.TypeOfExercise" Multiplicity="1" />
@@ -375,18 +372,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_VariableValue_Student">
-    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
-    <End Role="VariableValue" Type="Self.VariableValue" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Student">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="VariableValue">
-        <PropertyRef Name="StudentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_VariableValue_Variable">
     <End Role="Variable" Type="Self.Variable" Multiplicity="1" />
     <End Role="VariableValue" Type="Self.VariableValue" Multiplicity="*" />
@@ -490,10 +475,6 @@
     <AssociationSet Name="FK_Variable_Question" Association="Self.FK_Variable_Question">
       <End Role="Question" EntitySet="Question" />
       <End Role="Variable" EntitySet="Variable" />
-    </AssociationSet>
-    <AssociationSet Name="FK_VariableValue_Student" Association="Self.FK_VariableValue_Student">
-      <End Role="Student" EntitySet="Student" />
-      <End Role="VariableValue" EntitySet="VariableValue" />
     </AssociationSet>
     <AssociationSet Name="FK_VariableValue_Variable" Association="Self.FK_VariableValue_Variable">
       <End Role="Variable" EntitySet="Variable" />

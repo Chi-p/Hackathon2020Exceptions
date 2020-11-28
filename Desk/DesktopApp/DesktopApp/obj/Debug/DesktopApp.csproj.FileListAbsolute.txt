@@ -49,3 +49,11 @@ D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\App.g.cs
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp_Content.g.cs
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp_MarkupCompile.cache
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp_MarkupCompile.lref
+C:\Users\Admin\Source\Repos\HackathonDesktop2020\Desk\DesktopApp\DesktopApp\obj\Debug\Pages\CreateTestPage.g.cs
+C:\Users\Admin\Source\Repos\HackathonDesktop2020\Desk\DesktopApp\DesktopApp\obj\Debug\Pages\ListOfExerciseAndStudents.g.cs
+C:\Users\Admin\Source\Repos\HackathonDesktop2020\Desk\DesktopApp\DesktopApp\obj\Debug\Pages\MainMenuTeacherPage.g.cs
+C:\Users\Admin\Source\Repos\HackathonDesktop2020\Desk\DesktopApp\DesktopApp\obj\Debug\Windows\AddTaskPage.g.cs
+C:\Users\Admin\Source\Repos\HackathonDesktop2020\Desk\DesktopApp\DesktopApp\obj\Debug\Pages\CreateTestPage.baml
+C:\Users\Admin\Source\Repos\HackathonDesktop2020\Desk\DesktopApp\DesktopApp\obj\Debug\Pages\ListOfExerciseAndStudents.baml
+C:\Users\Admin\Source\Repos\HackathonDesktop2020\Desk\DesktopApp\DesktopApp\obj\Debug\Pages\MainMenuTeacherPage.baml
+C:\Users\Admin\Source\Repos\HackathonDesktop2020\Desk\DesktopApp\DesktopApp\obj\Debug\Windows\AddTaskPage.baml

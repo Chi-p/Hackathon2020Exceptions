@@ -56,7 +56,7 @@ namespace DesktopApp.Pages
                             Properties.Settings.Default.Save();
                         }
                         AppData.user = user;
-                        AppData.MainFrame.Navigate(new LIstSubjectPage());
+                        AppData.MainFrame.Navigate(new MainMenuTeacherPage());
                         break;
                     case 2:
                         MessageBox.Show("Десктопная версия для студентов пока не доступна!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
