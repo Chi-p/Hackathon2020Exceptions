@@ -14,7 +14,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid xf:Animations.Primary="{StaticResource FadeOutAndTranslateNormaly}"  Width="400" Height="400"  Background="White">
+        <Grid xf:Animations.Primary="{StaticResource FadeOutAndTranslateNormaly}"  Width="400" Height="400"  Background="{StaticResource MainHalfWhite}">
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Text="Логин" ></TextBlock>

@@ -3,15 +3,18 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
       xmlns:local="clr-namespace:DesktopApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MainWindowTeacherPage">
+      Title="MainWindowTeacherPage" Style="{StaticResource MainPage}">
 
     <Grid>
-        <StackPanel>
-            <Button x:Name="BtnListSubject" Click="BtnListSubject_Click">Мои предметы</Button>
-            <Button x:Name="BtnCreateTest" Click="BtnCreateTest_Click">Создать задание</Button>
-        </StackPanel>
+        <Grid Height="300" Width="400" Background="{StaticResource MainHalfWhite}" xf:Animations.Primary="{StaticResource FadeOutAndTranslateNormaly}">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="BtnListSubject" Height="40" Width="300" Style="{StaticResource ButtonStyled}" Click="BtnListSubject_Click">Мои предметы</Button>
+                <Button x:Name="BtnCreateTest" Height="40" Width="300" Style="{StaticResource ButtonStyled}"  Click="BtnCreateTest_Click">Создать задание</Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
