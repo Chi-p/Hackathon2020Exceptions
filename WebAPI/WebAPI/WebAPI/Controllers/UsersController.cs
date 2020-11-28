@@ -38,9 +38,8 @@ namespace WebAPI.Controllers
                 case "Студент":
                     return Ok(new StudentModel(user));
                 case "Преподаватель":
-                    return Ok(new TeacherModel(user));
                 case "Администратор":
-                    ModelState.AddModelError("400", "Админ не доступен");
+                    ModelState.AddModelError("400", "Пользователь не доступен");
                     break;
                 default:
                     ModelState.AddModelError("400", "Неизвестная ошибка");
