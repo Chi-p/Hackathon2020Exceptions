@@ -15,7 +15,13 @@
                 <ItemsControl x:Name="IcTask" Height="200">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-
+                            <StackPanel>
+                                <TextBlock Text="{Binding Description}"></TextBlock>
+                                <StackPanel>
+                                    <Button x:Name="BtnEditTask" Click="BtnEditTask_Click"></Button>
+                                    <Button x:Name="BtnDeleteTask" Click="BtnDeleteTask_Click"></Button>
+                                </StackPanel>
+                            </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.Template>

@@ -101,7 +101,7 @@
             <PropertyRef Name="TaskId" />
             <PropertyRef Name="StudentId" />
           </Key>
-          <Property Name="TaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskId" Type="int" Nullable="false" />
           <Property Name="Answer" Type="nvarchar(max)" Nullable="false" />
           <Property Name="StudentId" Type="int" Nullable="false" />
         </EntityType>
@@ -698,7 +698,7 @@
             <PropertyRef Name="TaskId" />
             <PropertyRef Name="StudentId" />
           </Key>
-          <Property Name="TaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskId" Type="Int32" Nullable="false" />
           <Property Name="Answer" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="StudentId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Student" Relationship="NotAThiefDataBaseModel.FK_TaskAnswer_Student" FromRole="TaskAnswer" ToRole="Student" />

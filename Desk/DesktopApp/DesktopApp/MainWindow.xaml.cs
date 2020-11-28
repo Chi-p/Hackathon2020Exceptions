@@ -26,9 +26,20 @@ namespace DesktopApp
         public MainWindow()
         {
             InitializeComponent();
-       
+            //foreach (var item in AppData.Context.ExerciseOfStudent.ToList())
+            //{
+            //    if (item.StudentId == 2)
+            //    {
+            //        item.StatusId = 1;
+            //        AppData.Context.SaveChanges();
+            //    }
+            //}
+            //foreach (var item in AppData.Context.TaskAnswer.ToList())
+            //{
+            //    AppData.Context.TaskAnswer.Remove(item);
+            //    AppData.Context.SaveChanges();
+            //}
             AppData.MainFrame = MainFrame;
-
         }
 
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
