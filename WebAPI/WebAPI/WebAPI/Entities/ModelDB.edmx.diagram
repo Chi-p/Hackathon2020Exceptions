@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1cc886288b364103ad430381a8c25140" Name="Diagram1" ZoomLevel="29">
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.Exercise" Width="1.5" PointX="3" PointY="15.875" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.FileInTask" Width="1.5" PointX="7.5" PointY="7.375" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.Group" Width="1.5" PointX="0.75" PointY="4.25" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.Question" Width="1.5" PointX="7.5" PointY="4.75" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.Role" Width="1.5" PointX="1.5" PointY="11.5" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.Student" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.Subject" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.SubjectOfTeacher" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="1.125" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.Task" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.TaskType" Width="1.5" PointX="3" PointY="7.5" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.TypeOfExercise" Width="1.5" PointX="0.75" PointY="16" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.User" Width="1.5" PointX="0.75" PointY="6.875" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.Variable" Width="1.5" PointX="9.75" PointY="4.625" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.VariableValue" Width="1.5" PointX="12" PointY="4.75" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_Exercise_TypeOfExercise" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_FileInTask_Task" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_SubjectOfTeacher_Group" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_Question_Task" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_Variable_Question" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_User_Role" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_Student_User" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_SubjectOfTeacher_Subject" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_SubjectOfTeacher_User" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_Task_SubjectOfTeacher" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_Task_TaskType1" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_VariableValue_Variable" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.GroupOfStudent" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.TaskOfExercise" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
