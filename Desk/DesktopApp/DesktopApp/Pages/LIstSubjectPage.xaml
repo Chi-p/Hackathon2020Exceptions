@@ -10,10 +10,21 @@
       Title="Список пар и групп">
 
     <Grid>
-        <xfc:AnimatedListView Name="AnimLvSubject">
+        <xfc:AnimatedListView Name="AnimLvSubject" SelectionMode="Extended">
             <xfc:AnimatedListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Subject.Name}"></TextBlock>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Key}"></TextBlock>
+                        <xfc:AnimatedListView  Name="AnimLvGroup" ItemsSource="{Binding }">
+                            <xfc:AnimatedListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+                                        <TextBlock Text="{Binding Group.Name}"></TextBlock>
+                                    </Grid>
+                                </DataTemplate>
+                            </xfc:AnimatedListView.ItemTemplate>
+                        </xfc:AnimatedListView>
+                    </StackPanel>
                 </DataTemplate>
             </xfc:AnimatedListView.ItemTemplate>
         </xfc:AnimatedListView>

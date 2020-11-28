@@ -17,6 +17,7 @@ namespace DesktopApp.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Exercise()
         {
+            this.ExerciseOfStudent = new HashSet<ExerciseOfStudent>();
             this.Task = new HashSet<Task>();
         }
     
@@ -25,6 +26,8 @@ namespace DesktopApp.Entities
         public int TypeOfExerciseId { get; set; }
     
         public virtual TypeOfExercise TypeOfExercise { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ExerciseOfStudent> ExerciseOfStudent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Task> Task { get; set; }
     }

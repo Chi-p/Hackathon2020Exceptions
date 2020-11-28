@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace DesktopApp.Pages
 {
@@ -24,7 +25,18 @@ namespace DesktopApp.Pages
         public LIstSubjectPage()
         {
             InitializeComponent();
-            AnimLvSubject.ItemsSource = AppData.Context.SubjectOfTeacher.Where(p => p.TeacherId == AppData.user.Id).ToList();
+            AnimLvSubject.ItemsSource = AppData.Context.SubjectOfTeacher.ToList().Where(p => p.TeacherId == AppData.user.Id).ToList()
+                .GroupBy(p => p.Subject.Name);
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            AppData.MainFrame.Navigate(new ListOfExerciseAndStudents(((sender as Grid).DataContext as Entities.SubjectOfTeacher).Group));
+        }
+
+        private void BtnCreateTest_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

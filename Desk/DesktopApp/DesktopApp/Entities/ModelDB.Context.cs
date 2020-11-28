@@ -26,10 +26,12 @@ namespace DesktopApp.Entities
         }
     
         public virtual DbSet<Exercise> Exercise { get; set; }
+        public virtual DbSet<ExerciseOfStudent> ExerciseOfStudent { get; set; }
         public virtual DbSet<FileInTask> FileInTask { get; set; }
         public virtual DbSet<Group> Group { get; set; }
         public virtual DbSet<Question> Question { get; set; }
         public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<Student> Student { get; set; }
         public virtual DbSet<Subject> Subject { get; set; }
         public virtual DbSet<SubjectOfTeacher> SubjectOfTeacher { get; set; }

@@ -8,6 +8,17 @@
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="TypeOfExerciseId" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="ExerciseOfStudent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ExerciseId" Type="int" Nullable="false" />
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mark" Type="nvarchar" MaxLength="5" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="FileInTask">
     <Key>
       <PropertyRef Name="Id" />
@@ -39,6 +50,13 @@
     <Property Name="TaskId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -147,6 +165,42 @@
       </Principal>
       <Dependent Role="Exercise">
         <PropertyRef Name="TypeOfExerciseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExerciseOfStudent_Exercise">
+    <End Role="Exercise" Type="Self.Exercise" Multiplicity="1" />
+    <End Role="ExerciseOfStudent" Type="Self.ExerciseOfStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exercise">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExerciseOfStudent">
+        <PropertyRef Name="ExerciseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExerciseOfStudent_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="ExerciseOfStudent" Type="Self.ExerciseOfStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExerciseOfStudent">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExerciseOfStudent_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="ExerciseOfStudent" Type="Self.ExerciseOfStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExerciseOfStudent">
+        <PropertyRef Name="StudentId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -332,11 +386,13 @@
   </Association>
   <EntityContainer Name="NotAThiefDataBaseModelStoreContainer">
     <EntitySet Name="Exercise" EntityType="Self.Exercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExerciseOfStudent" EntityType="Self.ExerciseOfStudent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FileInTask" EntityType="Self.FileInTask" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GroupOfStudent" EntityType="Self.GroupOfStudent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SubjectOfTeacher" EntityType="Self.SubjectOfTeacher" Schema="dbo" store:Type="Tables" />
@@ -351,6 +407,18 @@
     <AssociationSet Name="FK_Exercise_TypeOfExercise" Association="Self.FK_Exercise_TypeOfExercise">
       <End Role="TypeOfExercise" EntitySet="TypeOfExercise" />
       <End Role="Exercise" EntitySet="Exercise" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExerciseOfStudent_Exercise" Association="Self.FK_ExerciseOfStudent_Exercise">
+      <End Role="Exercise" EntitySet="Exercise" />
+      <End Role="ExerciseOfStudent" EntitySet="ExerciseOfStudent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExerciseOfStudent_Status" Association="Self.FK_ExerciseOfStudent_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="ExerciseOfStudent" EntitySet="ExerciseOfStudent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExerciseOfStudent_Student" Association="Self.FK_ExerciseOfStudent_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="ExerciseOfStudent" EntitySet="ExerciseOfStudent" />
     </AssociationSet>
     <AssociationSet Name="FK_FileInTask_Task" Association="Self.FK_FileInTask_Task">
       <End Role="Task" EntitySet="Task" />
