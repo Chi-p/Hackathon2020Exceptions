@@ -4,27 +4,44 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:xfc="clr-namespace:XamlFlair.Controls;assembly=XamlFlair.WPF"
+      xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
       xmlns:local="clr-namespace:DesktopApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListOfExerciseAndStudents">
 
     <Grid>
-        <xfc:AnimatedListView Name="AnimLvExercise" SelectionMode="Extended">
-            <xfc:AnimatedListView.ItemTemplate>
+        <ItemsControl Name="AnimLvExercise" xf:Animations.Primary="{StaticResource FadeOutAndTranslateNormaly}" Background="{StaticResource MainHalfWhite}" Margin="10" HorizontalContentAlignment="Stretch">
+            <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Key}"></TextBlock>
-                        <xfc:AnimatedListView ItemsSource="{Binding }">
-                            <ListView.ItemTemplate>
+                    <StackPanel HorizontalAlignment="Stretch">
+                        <Border  Margin="15" BorderBrush="{StaticResource MainAlmostBlack}" BorderThickness="0 0 0 2">
+                            <TextBlock Padding="0 5 5 5" Style="{StaticResource TblockBold}" Text="{Binding Key}"></TextBlock>
+                        </Border>
+                        <xfc:AnimatedListView Margin="10"  HorizontalContentAlignment="Center"  xf:Animations.Items="{xf:Animate BasedOn={StaticResource FadeInForListViews}}" xf:Animations.InterElementDelay="50" ItemsSource="{Binding }">
+                            <xfc:AnimatedListView.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Exercise.Name}"></TextBlock>
+                                    <Grid Height="70" Width="460">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Background="{StaticResource MainAlmostBlack}"></Grid>
+                                        <Border BorderBrush="{StaticResource MainAlmostBlack}" BorderThickness="0 2 0 2" Grid.Column="1">
+                                            <TextBlock FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Exercise.Name}"></TextBlock>
+                                        </Border>
+                                    </Grid>
                                 </DataTemplate>
-                            </ListView.ItemTemplate>
+                            </xfc:AnimatedListView.ItemTemplate>
+                            <xfc:AnimatedListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel ></WrapPanel>
+                                </ItemsPanelTemplate>
+                            </xfc:AnimatedListView.ItemsPanel>
                         </xfc:AnimatedListView>
                     </StackPanel>
                 </DataTemplate>
-            </xfc:AnimatedListView.ItemTemplate>
-        </xfc:AnimatedListView>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </Page>

@@ -26,6 +26,7 @@
         <xf:AnimationSettings x:Key="FadeIn" Kind="FadeTo" Opacity="1" Duration="1000"></xf:AnimationSettings>
         <xf:AnimationSettings x:Key="FadeOutAndTranslate" Kind="FadeTo,TranslateYto" OffsetY="-500" Opacity="0" Event="None" Duration="2000"></xf:AnimationSettings>
         <xf:AnimationSettings x:Key="FadeOutAndTranslateNormaly" Kind="FadeFrom,TranslateXFrom" OffsetX="-50" Opacity="0" Event="Loaded"  Duration="500"></xf:AnimationSettings>
+        <xf:AnimationSettings x:Key="FadeOutAndTranslateNormalyFromVisability" Kind="FadeFrom,TranslateXFrom" OffsetX="-50" Opacity="0" Event="Visibility"  Duration="500"></xf:AnimationSettings>
 
         <xf:AnimationSettings x:Key="BlurThenMouseOver" Kind="BlurTo" Event="PointerExit" BlurRadius="10"></xf:AnimationSettings>
         <xf:AnimationSettings x:Key="BlurOnLoaded" Kind="BlurTo" BlurRadius="10"></xf:AnimationSettings>

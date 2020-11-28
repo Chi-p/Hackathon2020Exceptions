@@ -219,6 +219,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Entities\PartialSubjectOfTeacher.cs" />
+    <Compile Include="Entities\PartialUser.cs" />
     <Compile Include="Entities\TaskAnswer.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>

@@ -48,6 +48,8 @@ namespace DesktopApp
         private void MainFrame_ContentRendered(object sender, EventArgs e)
         {
             var page = AppData.MainFrame.Content as Page;
+            if (AppData.user != null)
+                TblName.Text = AppData.user.FIO;
             if (page.Title == "Авторизация")
             {
                 BtnBack.Visibility = Visibility.Collapsed;
@@ -69,7 +71,7 @@ namespace DesktopApp
             }
             if (AppData.MainFrame.CanGoBack)
                 AppData.MainFrame.GoBack();
-            
+
         }
 
         public bool IsPressed { get; set; }
@@ -86,7 +88,7 @@ namespace DesktopApp
         }
 
         double _countToNavigate = 0;
-        private  void DtCountDown_Tick(object sender, EventArgs e)
+        private void DtCountDown_Tick(object sender, EventArgs e)
         {
             if (_countToNavigate == 0.25)
             {
@@ -103,7 +105,7 @@ namespace DesktopApp
                     }
                     else
                     {
-                       AppData.MainFrame.Navigate(new AutorizationPage());
+                        AppData.MainFrame.Navigate(new AutorizationPage());
                     }
                 }
                 else
