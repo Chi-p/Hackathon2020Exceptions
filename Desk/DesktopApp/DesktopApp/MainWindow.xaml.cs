@@ -26,7 +26,18 @@ namespace DesktopApp
         {
             InitializeComponent();
             AppData.MainFrame = MainFrame;
-            MainFrame.Navigate(new AutorizationPage());
+            if (!String.IsNullOrWhiteSpace(Properties.Settings.Default.Login) && !String.IsNullOrWhiteSpace(Properties.Settings.Default.Password))
+            {
+                AppData.user = AppData.Context.User.ToList().FirstOrDefault(p => p.Password == Properties.Settings.Default.Password && p.Login == Properties.Settings.Default.Login);
+                if (AppData.user != null)
+                {
+                    AppData.MainFrame.Navigate(new LIstSubjectPage());
+                }
+                else
+                {
+                    MainFrame.Navigate(new MainMenuTeacherPage());
+                }
+            }
         }
 
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
@@ -42,13 +53,15 @@ namespace DesktopApp
         {
             var page = AppData.MainFrame.Content as Page;
             if (page.Title == "Авторизация")
-            {
                 BtnBack.Visibility = Visibility.Collapsed;
-            }
             else
-            {
                 BtnBack.Visibility = Visibility.Visible;
-            }
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (AppData.MainFrame.CanGoBack)
+                AppData.MainFrame.GoBack();
         }
     }
 }

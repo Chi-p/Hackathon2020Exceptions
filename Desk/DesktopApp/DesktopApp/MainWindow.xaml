@@ -14,6 +14,6 @@
         </Grid.RowDefinitions>
         <Frame ContentRendered="MainFrame_ContentRendered" x:Name="MainFrame"></Frame>
         <Button Grid.Row="1" x:Name="BtnLogout" Click="BtnLogout_Click"></Button>
-        <Button Grid.Row="2" x:Name="BtnBack" Click="BtnLogout_Click">Назад</Button>
+        <Button Grid.Row="2" x:Name="BtnBack" Click="BtnBack_Click">Назад</Button>
     </Grid>
 </Window>
