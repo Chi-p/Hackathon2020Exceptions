@@ -37,5 +37,15 @@ namespace DesktopApp.Pages
         {
 
         }
+
+        private void BtnDeleteTask_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEditTask_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
