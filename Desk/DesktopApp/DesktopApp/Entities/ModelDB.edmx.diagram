@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6515b38c2aa24300809274b407446faf" Name="Diagram1">
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.Exercise" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.FileInTask" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.Group" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.Question" Width="1.5" PointX="7.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.Role" Width="1.5" PointX="1.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.Student" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.Subject" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.SubjectOfTeacher" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.Task" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.TaskType" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.TypeOfExercise" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.User" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.Variable" Width="1.5" PointX="9.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotAThiefDataBaseModel.VariableValue" Width="1.5" PointX="12" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_Exercise_TypeOfExercise" ManuallyRouted="false" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_FileInTask_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_SubjectOfTeacher_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_Question_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_Variable_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_Student_User" ManuallyRouted="false" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_SubjectOfTeacher_Subject" ManuallyRouted="false" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_SubjectOfTeacher_User" ManuallyRouted="false" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_Task_SubjectOfTeacher" ManuallyRouted="false" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_Task_TaskType1" ManuallyRouted="false" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.FK_VariableValue_Variable" ManuallyRouted="false" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.GroupOfStudent" ManuallyRouted="false" />
+        <AssociationConnector Association="NotAThiefDataBaseModel.TaskOfExercise" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NotAThiefDataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Exercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TypeOfExerciseId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FileInTask">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FileBit" Type="varbinary(max)" Nullable="false" />
+    <Property Name="TaskId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GroupOfStudent">
+    <Key>
+      <PropertyRef Name="StudentId" />
+      <PropertyRef Name="GroupId" />
+    </Key>
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="GroupId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="NamedNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateOfReceipt" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubjectOfTeacher">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="SubjectId" Type="int" Nullable="false" />
+    <Property Name="TeacherId" Type="int" Nullable="false" />
+    <Property Name="GroupId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeOfTask" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SubjectOfTeacherId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaskOfExercise">
+    <Key>
+      <PropertyRef Name="ExerciseId" />
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Name="ExerciseId" Type="int" Nullable="false" />
+    <Property Name="TaskId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaskType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeOfExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+    <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Variable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="QuestionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VariableValue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VariableId" Type="int" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Exercise_TypeOfExercise">
+    <End Role="TypeOfExercise" Type="Self.TypeOfExercise" Multiplicity="1" />
+    <End Role="Exercise" Type="Self.Exercise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeOfExercise">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Exercise">
+        <PropertyRef Name="TypeOfExerciseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FileInTask_Task">
+    <End Role="Task" Type="Self.Task" Multiplicity="1" />
+    <End Role="FileInTask" Type="Self.FileInTask" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FileInTask">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupOfStudent_Group">
+    <End Role="Group" Type="Self.Group" Multiplicity="1" />
+    <End Role="GroupOfStudent" Type="Self.GroupOfStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupOfStudent">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupOfStudent_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="GroupOfStudent" Type="Self.GroupOfStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupOfStudent">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_Task">
+    <End Role="Task" Type="Self.Task" Multiplicity="1" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectOfTeacher_Group">
+    <End Role="Group" Type="Self.Group" Multiplicity="1" />
+    <End Role="SubjectOfTeacher" Type="Self.SubjectOfTeacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubjectOfTeacher">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectOfTeacher_Subject">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+    <End Role="SubjectOfTeacher" Type="Self.SubjectOfTeacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubjectOfTeacher">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectOfTeacher_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="SubjectOfTeacher" Type="Self.SubjectOfTeacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubjectOfTeacher">
+        <PropertyRef Name="TeacherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Task_SubjectOfTeacher">
+    <End Role="SubjectOfTeacher" Type="Self.SubjectOfTeacher" Multiplicity="1" />
+    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubjectOfTeacher">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="SubjectOfTeacherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Task_TaskType1">
+    <End Role="TaskType" Type="Self.TaskType" Multiplicity="1" />
+    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="TypeOfTask" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskOfExercise_Exercise">
+    <End Role="Exercise" Type="Self.Exercise" Multiplicity="1" />
+    <End Role="TaskOfExercise" Type="Self.TaskOfExercise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exercise">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TaskOfExercise">
+        <PropertyRef Name="ExerciseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskOfExercise_Task">
+    <End Role="Task" Type="Self.Task" Multiplicity="1" />
+    <End Role="TaskOfExercise" Type="Self.TaskOfExercise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TaskOfExercise">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Variable_Question">
+    <End Role="Question" Type="Self.Question" Multiplicity="1" />
+    <End Role="Variable" Type="Self.Variable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Variable">
+        <PropertyRef Name="QuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VariableValue_Variable">
+    <End Role="Variable" Type="Self.Variable" Multiplicity="1" />
+    <End Role="VariableValue" Type="Self.VariableValue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Variable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VariableValue">
+        <PropertyRef Name="VariableId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NotAThiefDataBaseModelStoreContainer">
+    <EntitySet Name="Exercise" EntityType="Self.Exercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FileInTask" EntityType="Self.FileInTask" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GroupOfStudent" EntityType="Self.GroupOfStudent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubjectOfTeacher" EntityType="Self.SubjectOfTeacher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Task" EntityType="Self.Task" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaskOfExercise" EntityType="Self.TaskOfExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaskType" EntityType="Self.TaskType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeOfExercise" EntityType="Self.TypeOfExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Variable" EntityType="Self.Variable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VariableValue" EntityType="Self.VariableValue" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Exercise_TypeOfExercise" Association="Self.FK_Exercise_TypeOfExercise">
+      <End Role="TypeOfExercise" EntitySet="TypeOfExercise" />
+      <End Role="Exercise" EntitySet="Exercise" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FileInTask_Task" Association="Self.FK_FileInTask_Task">
+      <End Role="Task" EntitySet="Task" />
+      <End Role="FileInTask" EntitySet="FileInTask" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupOfStudent_Group" Association="Self.FK_GroupOfStudent_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="GroupOfStudent" EntitySet="GroupOfStudent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupOfStudent_Student" Association="Self.FK_GroupOfStudent_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="GroupOfStudent" EntitySet="GroupOfStudent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_Task" Association="Self.FK_Question_Task">
+      <End Role="Task" EntitySet="Task" />
+      <End Role="Question" EntitySet="Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_User" Association="Self.FK_Student_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectOfTeacher_Group" Association="Self.FK_SubjectOfTeacher_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectOfTeacher_Subject" Association="Self.FK_SubjectOfTeacher_Subject">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectOfTeacher_User" Association="Self.FK_SubjectOfTeacher_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Task_SubjectOfTeacher" Association="Self.FK_Task_SubjectOfTeacher">
+      <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Task_TaskType1" Association="Self.FK_Task_TaskType1">
+      <End Role="TaskType" EntitySet="TaskType" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskOfExercise_Exercise" Association="Self.FK_TaskOfExercise_Exercise">
+      <End Role="Exercise" EntitySet="Exercise" />
+      <End Role="TaskOfExercise" EntitySet="TaskOfExercise" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskOfExercise_Task" Association="Self.FK_TaskOfExercise_Task">
+      <End Role="Task" EntitySet="Task" />
+      <End Role="TaskOfExercise" EntitySet="TaskOfExercise" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Variable_Question" Association="Self.FK_Variable_Question">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="Variable" EntitySet="Variable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VariableValue_Variable" Association="Self.FK_VariableValue_Variable">
+      <End Role="Variable" EntitySet="Variable" />
+      <End Role="VariableValue" EntitySet="VariableValue" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
