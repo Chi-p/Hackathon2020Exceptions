@@ -16,7 +16,7 @@
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock Text="{Binding Key}"></TextBlock>
-                        <xfc:AnimatedListView  Name="AnimLvGroup" ItemsSource="{Binding }">
+                        <xfc:AnimatedListView  xf:Animations.Items="{xf:Animate BasedOn={StaticResource FadeInForListViews}}" xf:Animations.InterElementDelay="25"  Name="AnimLvGroup" ItemsSource="{Binding }">
                             <xfc:AnimatedListView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">

@@ -27,9 +27,15 @@ namespace DesktopApp
         {
             InitializeComponent();
             AppData.MainFrame = MainFrame;
+
         }
 
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            Logout();
+        }
+
+        private static void Logout()
         {
             Properties.Settings.Default.Login = "";
             Properties.Settings.Default.Password = "";
@@ -55,8 +61,14 @@ namespace DesktopApp
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
+            var page = AppData.MainFrame.Content as Page;
+            if (page.Title == "MainWindowTeacherPage")
+            {
+                Logout();
+            }
             if (AppData.MainFrame.CanGoBack)
                 AppData.MainFrame.GoBack();
+            
         }
 
         public bool IsPressed { get; set; }
@@ -73,23 +85,31 @@ namespace DesktopApp
         }
 
         double _countToNavigate = 0;
-        private void DtCountDown_Tick(object sender, EventArgs e)
+        private  void DtCountDown_Tick(object sender, EventArgs e)
         {
             if (_countToNavigate == 0.25)
             {
-                if (!String.IsNullOrWhiteSpace(Properties.Settings.Default.Login) && !String.IsNullOrWhiteSpace(Properties.Settings.Default.Password))
+                if (!string.IsNullOrWhiteSpace(Properties.Settings.Default.Login) && !string.IsNullOrWhiteSpace(Properties.Settings.Default.Password))
                 {
+
+                    //await Task.Run(() =>
+                    // {
                     AppData.user = AppData.Context.User.ToList().FirstOrDefault(p => p.Password == Properties.Settings.Default.Password && p.Login == Properties.Settings.Default.Login);
+                    //});
                     if (AppData.user != null)
                     {
-                        AppData.MainFrame.Navigate(new LIstSubjectPage());
+                        AppData.MainFrame.Navigate(new MainMenuTeacherPage());
                     }
                     else
                     {
-                        MainFrame.Navigate(new MainMenuTeacherPage());
+                       AppData.MainFrame.Navigate(new AutorizationPage());
                     }
-                    GridForAnimations.Visibility = Visibility.Collapsed;
                 }
+                else
+                {
+                    AppData.MainFrame.Navigate(new AutorizationPage());
+                }
+                GridForAnimations.Visibility = Visibility.Collapsed;
                 (sender as DispatcherTimer).Stop();
             }
             _countToNavigate += 0.25;
