@@ -21,17 +21,24 @@ namespace DesktopApp.Windows
     /// </summary>
     public partial class AddTaskPage : Window
     {
+        private Entities.Task _task;
         public AddTaskPage()
         {
             InitializeComponent();
+            _task = new Entities.Task
+            {
+                
+            }
+        }
+        private void MIAddValue_Click(object sender, RoutedEventArgs e)
+        {
+            AddValueWindow addValueWindow = new AddValueWindow(TbDescruption.Text, TbDescruption.Text, _task);
+            addValueWindow.ShowDialog();
         }
 
-        private void CbTypeOfTask_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
-            Exercise ex = new Exercise();
-            //var a = AppData.Context.Question.ToList().FirstOrDefault(i => i.Task.Exercise.ToList().FirstOrDefault(i => i == ex).ExerciseOfStudent.ToList().FirstOrDefault(i => i.Exercise == ex).StudentId);
 
-            var st = AppData.Context.ExerciseOfStudent.ToList().FirstOrDefault(i => i.Exercise == ex);
         }
     }
 }

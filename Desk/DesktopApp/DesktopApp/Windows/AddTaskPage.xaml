@@ -8,8 +8,14 @@
         Title="AddTaskPage" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <TextBox x:Name="TbDescruption"></TextBox>
-            
+            <TextBox x:Name="TbDescruption">
+                <TextBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="MIAddValue" Click="MIAddValue_Click" Header="Добавить специальное значение"/>
+                    </ContextMenu>
+                </TextBox.ContextMenu>
+            </TextBox>
+            <Button x:Name="BtnOk" Click="BtnOk_Click">Ок</Button>
         </StackPanel>
     </Grid>
 </Window>

@@ -12,17 +12,22 @@
         <ScrollViewer>
             <StackPanel>
                 <ComboBox Name="CbTypeExercise" DisplayMemberPath="Name"></ComboBox>
-            <ItemsControl Height="200">
-                    <ControlTemplate>
-                        <WrapPanel Orientation="Horizontal">
-                            <ItemsPresenter />
-                            <Button Content="Добавить упражнение"  Name="BtnAddTask" Click="BtnAddTask_Click"/>
-                        </WrapPanel>
-                    </ControlTemplate>
+                <ItemsControl x:Name="IcTask" Height="200">
                     <ItemsControl.ItemTemplate>
-                    <DataTemplate></DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                        <DataTemplate>
+
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.Template>
+                        <ControlTemplate>
+                            <WrapPanel Orientation="Horizontal">
+                                <ItemsPresenter />
+                                <Button Content="Добавить задачу"  Name="BtnAddType" Click="BtnAddTask_Click"/>
+                            </WrapPanel>
+                        </ControlTemplate>
+                    </ItemsControl.Template>
+                </ItemsControl>
+                <Button x:Name="BtnOk" Click="BtnOk_Click">Ок</Button>
             </StackPanel>
         </ScrollViewer>
     </Grid>
