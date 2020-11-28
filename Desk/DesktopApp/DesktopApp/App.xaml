@@ -1,9 +1,41 @@
 ﻿<Application x:Class="DesktopApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
              xmlns:local="clr-namespace:DesktopApp"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <SolidColorBrush x:Key="MainAlmostBlack" Color="#262631"></SolidColorBrush>
+        <SolidColorBrush x:Key="MainGray" Color="#C2C2C2"></SolidColorBrush>
+        <SolidColorBrush x:Key="MainHalfWhite" Color="#9EE8E8E8"></SolidColorBrush>
+
+        <LinearGradientBrush x:Key="MainGradient" StartPoint="0,2" EndPoint="1,1">
+            <GradientStop Color="#C2C2C2" Offset="0.2"></GradientStop>
+            <GradientStop Color="#262631" Offset="1"></GradientStop>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="MainPageGradient" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#00E8E8E8" Offset="0.2"></GradientStop>
+            <GradientStop Color="White" Offset="1"></GradientStop>
+        </LinearGradientBrush>
+
+        <xf:AnimationSettings x:Key="FadeInForListViews" Kind="FadeFrom,TranslateYFrom" OffsetY="20" Opacity="0" Duration="500"></xf:AnimationSettings>
+
+        <xf:AnimationSettings x:Key="FadeOutAndTranslate" Kind="FadeFrom,TranslateXFrom" OffsetX="50" Opacity="0" Duration="2000"></xf:AnimationSettings>
+
+        <xf:AnimationSettings x:Key="BlurThenMouseOver" Kind="BlurTo" Event="PointerExit" BlurRadius="10"></xf:AnimationSettings>
+        <xf:AnimationSettings x:Key="BlurOnLoaded" Kind="BlurTo" BlurRadius="10"></xf:AnimationSettings>
+        <xf:AnimationSettings x:Key="UnBlurThenLostMouse" Kind="BlurTo" Event="PointerOver" Duration="1000" BlurRadius="0"></xf:AnimationSettings>
+
+        <Style TargetType="{x:Type Page}" x:Key="MainPage">
+            <Setter Property="Foreground" Value="{StaticResource MainAlmostBlack}" />
+            <Setter Property="FontFamily" Value="Century Gothic" />
+        </Style>
+
+        <Style TargetType="{x:Type Window}" x:Key="MainWindow">
+            <Setter Property="Foreground" Value="{StaticResource MainAlmostBlack}" />
+            <Setter Property="FontFamily" Value="Century Gothic" />
+        </Style>
+
     </Application.Resources>
 </Application>
