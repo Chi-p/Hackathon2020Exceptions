@@ -17,7 +17,7 @@ namespace WebAPI.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SubjectOfTeacher()
         {
-            this.Task = new HashSet<Task>();
+            this.ExerciseOfStudent = new HashSet<ExerciseOfStudent>();
         }
     
         public int SubjectId { get; set; }
@@ -25,10 +25,10 @@ namespace WebAPI.Entities
         public int GroupId { get; set; }
         public int Id { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ExerciseOfStudent> ExerciseOfStudent { get; set; }
         public virtual Group Group { get; set; }
         public virtual Subject Subject { get; set; }
         public virtual User User { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Task> Task { get; set; }
     }
 }

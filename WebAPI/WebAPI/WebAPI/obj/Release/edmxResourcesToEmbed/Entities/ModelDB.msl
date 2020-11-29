@@ -13,6 +13,7 @@
     <EntitySetMapping Name="ExerciseOfStudent">
       <EntityTypeMapping TypeName="NotAThiefDataBaseModel.ExerciseOfStudent">
         <MappingFragment StoreEntitySet="ExerciseOfStudent">
+          <ScalarProperty Name="SubjectOfTeacherId" ColumnName="SubjectOfTeacherId" />
           <ScalarProperty Name="StatusId" ColumnName="StatusId" />
           <ScalarProperty Name="Comment" ColumnName="Comment" />
           <ScalarProperty Name="Mark" ColumnName="Mark" />
@@ -88,7 +89,6 @@
     <EntitySetMapping Name="Task">
       <EntityTypeMapping TypeName="NotAThiefDataBaseModel.Task">
         <MappingFragment StoreEntitySet="Task">
-          <ScalarProperty Name="SubjectOfTeacherId" ColumnName="SubjectOfTeacherId" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>

@@ -88,10 +88,8 @@ D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\WebAPI.dll
 D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\WebAPI.pdb
 D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\csc.exe
 D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\csc.exe.config
-D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\csc.rsp
 D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\csi.exe
 D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\csi.exe.config
-D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\csi.rsp
 D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
@@ -132,7 +130,6 @@ D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\System.Xml.XPath.dll
 D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
 D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\vbc.exe
 D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\vbc.exe.config
-D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\vbc.rsp
 D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\VBCSCompiler.exe
 D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\VBCSCompiler.exe.config
 D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\Antlr3.Runtime.dll
@@ -172,3 +169,6 @@ D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\obj\Debug\WebAPI.csproj.CoreComp
 D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\obj\Debug\WebAPI.csproj.CopyComplete
 D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\obj\Debug\WebAPI.dll
 D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\obj\Debug\WebAPI.pdb
+D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\csc.rsp
+D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\csi.rsp
+D:\Hackathon2020Exceptions\WebAPI\WebAPI\WebAPI\bin\roslyn\vbc.rsp

@@ -106,10 +106,11 @@ namespace WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.User.Add(user);
-            db.SaveChanges();
+            var currUser = db.User.ToList().FirstOrDefault(i => i.Login == user.Login && i.Password == user.Password);
+            if (currUser == null)
+                return NotFound();
 
-            return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
+            return Ok(new StudentModel(currUser));
         }
 
         // DELETE: api/Users/5

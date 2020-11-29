@@ -18,6 +18,7 @@
     <Property Name="Mark" Type="nvarchar" MaxLength="5" />
     <Property Name="Comment" Type="nvarchar(max)" />
     <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="SubjectOfTeacherId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Group">
     <Key>
@@ -89,14 +90,13 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SubjectOfTeacherId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TaskAnswer">
     <Key>
       <PropertyRef Name="TaskId" />
       <PropertyRef Name="StudentId" />
     </Key>
-    <Property Name="TaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskId" Type="int" Nullable="false" />
     <Property Name="Answer" Type="nvarchar(max)" Nullable="false" />
     <Property Name="StudentId" Type="int" Nullable="false" />
   </EntityType>
@@ -200,6 +200,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ExerciseOfStudent_SubjectOfTeacher">
+    <End Role="SubjectOfTeacher" Type="Self.SubjectOfTeacher" Multiplicity="1" />
+    <End Role="ExerciseOfStudent" Type="Self.ExerciseOfStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubjectOfTeacher">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExerciseOfStudent">
+        <PropertyRef Name="SubjectOfTeacherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_GroupOfStudent_Group">
     <End Role="Group" Type="Self.Group" Multiplicity="1" />
     <End Role="GroupOfStudent" Type="Self.GroupOfStudent" Multiplicity="*" />
@@ -269,18 +281,6 @@
       </Principal>
       <Dependent Role="SubjectOfTeacher">
         <PropertyRef Name="TeacherId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Task_SubjectOfTeacher">
-    <End Role="SubjectOfTeacher" Type="Self.SubjectOfTeacher" Multiplicity="1" />
-    <End Role="Task" Type="Self.Task" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SubjectOfTeacher">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Task">
-        <PropertyRef Name="SubjectOfTeacherId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -427,6 +427,10 @@
       <End Role="Student" EntitySet="Student" />
       <End Role="ExerciseOfStudent" EntitySet="ExerciseOfStudent" />
     </AssociationSet>
+    <AssociationSet Name="FK_ExerciseOfStudent_SubjectOfTeacher" Association="Self.FK_ExerciseOfStudent_SubjectOfTeacher">
+      <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
+      <End Role="ExerciseOfStudent" EntitySet="ExerciseOfStudent" />
+    </AssociationSet>
     <AssociationSet Name="FK_GroupOfStudent_Group" Association="Self.FK_GroupOfStudent_Group">
       <End Role="Group" EntitySet="Group" />
       <End Role="GroupOfStudent" EntitySet="GroupOfStudent" />
@@ -450,10 +454,6 @@
     <AssociationSet Name="FK_SubjectOfTeacher_User" Association="Self.FK_SubjectOfTeacher_User">
       <End Role="User" EntitySet="User" />
       <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Task_SubjectOfTeacher" Association="Self.FK_Task_SubjectOfTeacher">
-      <End Role="SubjectOfTeacher" EntitySet="SubjectOfTeacher" />
-      <End Role="Task" EntitySet="Task" />
     </AssociationSet>
     <AssociationSet Name="FK_TaskAnswer_Student" Association="Self.FK_TaskAnswer_Student">
       <End Role="Student" EntitySet="Student" />

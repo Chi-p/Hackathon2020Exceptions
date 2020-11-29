@@ -20,9 +20,11 @@ namespace WebAPI.Entities
         public string Mark { get; set; }
         public string Comment { get; set; }
         public int StatusId { get; set; }
+        public int SubjectOfTeacherId { get; set; }
     
         public virtual Exercise Exercise { get; set; }
         public virtual Status Status { get; set; }
         public virtual Student Student { get; set; }
+        public virtual SubjectOfTeacher SubjectOfTeacher { get; set; }
     }
 }
