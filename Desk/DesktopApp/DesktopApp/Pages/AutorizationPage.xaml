@@ -22,7 +22,7 @@
                 <TextBlock Text="Пароль" ></TextBlock>
                 <PasswordBox x:Name="PbPassword" Width="200" Style="{StaticResource PasswordBoxStyled}"></PasswordBox>
                 <CheckBox x:Name="CbIsRemember" Content="Запомнить меня" Style="{DynamicResource CheckBoxStyled}"></CheckBox>
-                <Button x:Name="BtnOk" Height="40" Click="BtnOk_Click" Style="{DynamicResource ButtonStyled}">Войти</Button>
+                <Button IsDefault="True"   x:Name="BtnOk" Height="40" Click="BtnOk_Click" Style="{DynamicResource ButtonStyled}">Войти</Button>
             </StackPanel>
         </Grid>
         <Image xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeOutAndTranslateNormaly}, Delay=700}" Grid.Column="1" HorizontalAlignment="Center" Height="100" VerticalAlignment="Center" Source="/DesktopApp;component/Resources/notAThiefWhite.png"></Image>

@@ -6,7 +6,7 @@
         xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
         xmlns:local="clr-namespace:DesktopApp"
         mc:Ignorable="d"
-        Title="{Binding ElementName=MainFrame, Path=Content.Title}" Height="600" Width="1000"  Style="{StaticResource MainWindow}" KeyDown="Window_KeyDown">
+        Title="{Binding ElementName=MainFrame, Path=Content.Title}" MinHeight="600" MinWidth="1000" Height="600" Width="1000"  Style="{StaticResource MainWindow}">
     <Grid Background="{StaticResource MainGradient}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -15,7 +15,7 @@
         <Frame NavigationUIVisibility="Hidden" Grid.Row="1" ContentRendered="MainFrame_ContentRendered" x:Name="MainFrame"></Frame>
         <Grid Visibility="Collapsed" Name="GridWithTopThings">
             <Button Height="40" Width="100" Style="{StaticResource ButtonStyled}" Margin="10" Click="BtnLogout_Click" HorizontalAlignment="Right" x:Name="BtnLogout">Выход</Button>
-            <Button Height="50" Width="50" FontSize="50" Padding="-4 -13 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="BtnBack" Background="Transparent"  BorderBrush="Transparent" Style="{StaticResource ButtonStyled}"  Click="BtnBack_Click">🠔</Button>
+            <Button IsCancel="True" Height="50" Width="50" FontSize="50" Padding="-4 -13 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="BtnBack" Background="Transparent"  BorderBrush="Transparent" Style="{StaticResource ButtonStyled}"  Click="BtnBack_Click">🠔</Button>
             <Image Source="Resources/notAThiefWhite.png" xf:Animations.Primary="{xf:Animate BasedOn={ StaticResource FadeOutAndTranslateNormalyFromVisability}}" xf:Animations.PrimaryBinding="{Binding IsVisible,ElementName=GridWithTopThings}" HorizontalAlignment="Left" VerticalAlignment="Center" Height="60" Margin="60 5 5 5"></Image>
             <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" xf:Animations.Primary="{xf:Animate BasedOn={ StaticResource FadeOutAndTranslateNormalyFromVisability}}" xf:Animations.PrimaryBinding="{Binding IsVisible,ElementName=GridWithTopThings}"  Foreground="White" Width="300" TextAlignment="Right" TextWrapping="WrapWithOverflow" FontSize="18" Name="TblName" Margin="5 5 150 5"></TextBlock>
         </Grid>
