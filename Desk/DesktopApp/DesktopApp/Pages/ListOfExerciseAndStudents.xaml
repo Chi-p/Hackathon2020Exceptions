@@ -11,6 +11,7 @@
       Title="Список заданий" Style="{StaticResource MainPage}">
 
     <Grid>
+
         <ScrollViewer>
             <ItemsControl Name="AnimLvExercise" xf:Animations.Primary="{StaticResource FadeOutAndTranslateNormaly}" Background="{StaticResource MainHalfWhite}" Margin="10" HorizontalContentAlignment="Stretch">
                 <ItemsControl.ItemTemplate>
@@ -45,5 +46,11 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Style="{StaticResource TblockBold}">У вас нет никаких заданий</TextBlock>
+                <Button>Создать задание</Button>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>

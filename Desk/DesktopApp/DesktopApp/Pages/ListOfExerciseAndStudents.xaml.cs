@@ -27,8 +27,13 @@ namespace DesktopApp.Pages
             InitializeComponent();
             if (subjectOfTeacher != null)
             {
+                
                 AnimLvExercise.ItemsSource = AppData.Context.ExerciseOfStudent.ToList().Where(p => p.SubjectOfTeacher == subjectOfTeacher)
                     .GroupBy(p => p.Exercise.Name).ToList();
+                if (AnimLvExercise.ItemsSource == null)
+                {
+
+                }
 
             }
         }

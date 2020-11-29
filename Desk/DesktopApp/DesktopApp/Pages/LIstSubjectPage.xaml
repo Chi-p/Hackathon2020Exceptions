@@ -19,10 +19,10 @@
                             <Border  Margin="15" BorderBrush="{StaticResource MainAlmostBlack}" BorderThickness="0 0 0 2">
                                 <TextBlock Padding="0 5 5 5" Style="{StaticResource TblockBold}" Text="{Binding Key}"></TextBlock>
                             </Border>
-                            <xfc:AnimatedListView Margin="10"  HorizontalContentAlignment="Center"  xf:Animations.Items="{xf:Animate BasedOn={StaticResource FadeInForListViews}}" xf:Animations.InterElementDelay="50"  Name="AnimLvGroup" ItemsSource="{Binding }">
+                            <xfc:AnimatedListView Margin="10"  HorizontalContentAlignment="Stretch"  xf:Animations.Items="{xf:Animate BasedOn={StaticResource FadeInForListViews}}" xf:Animations.InterElementDelay="50"  Name="AnimLvGroup" ItemsSource="{Binding }">
                                 <xfc:AnimatedListView.ItemTemplate>
                                     <DataTemplate>
-                                        <Grid Height="70" Width="460" Background="{StaticResource MainHalfWhite}" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+                                        <Grid MinHeight="70" Background="{StaticResource MainHalfWhite}" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="50"></ColumnDefinition>
                                                 <ColumnDefinition></ColumnDefinition>
@@ -36,7 +36,7 @@
                                 </xfc:AnimatedListView.ItemTemplate>
                                 <xfc:AnimatedListView.ItemsPanel>
                                     <ItemsPanelTemplate>
-                                        <WrapPanel ></WrapPanel>
+                                        <StackPanel ></StackPanel>
                                     </ItemsPanelTemplate>
                                 </xfc:AnimatedListView.ItemsPanel>
                             </xfc:AnimatedListView>
