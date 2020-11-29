@@ -25,32 +25,6 @@ namespace WebAPI.Controllers
 
         // GET: api/Users/5
         [ResponseType(typeof(User))]
-        public IHttpActionResult GetUser(string login, string pass)
-        {
-            User user = db.User.ToList().FirstOrDefault(i => i.Login == login && i.Password == pass);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            switch (user.Role.Name)
-            {
-                case "Студент":
-                    return Ok(new StudentModel(user));
-                case "Преподаватель":
-                case "Администратор":
-                    ModelState.AddModelError("400", "Пользователь не доступен");
-                    break;
-                default:
-                    ModelState.AddModelError("400", "Неизвестная ошибка");
-                    break;
-            }
-
-            return BadRequest(ModelState);
-        }
-
-        // GET: api/Users/5
-        [ResponseType(typeof(User))]
         public IHttpActionResult GetUser(int Id)
         {
             User user = db.User.ToList().FirstOrDefault(i => i.Id == Id);
