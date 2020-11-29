@@ -11,7 +11,7 @@ namespace WebAPI.Models
         public ExerciseOfStudentModel(ExerciseOfStudent exerciseOfStudent)
         {
             Id = exerciseOfStudent.Id;
-            Exercise = exerciseOfStudent.Exercise.Name;  
+            Exercise = exerciseOfStudent.Exercise.Name;
             Mark = exerciseOfStudent.Mark;
             Comment = exerciseOfStudent.Comment;
             Status = exerciseOfStudent.Status.Name;

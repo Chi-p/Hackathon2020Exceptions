@@ -233,6 +233,7 @@
     </Compile>
     <Compile Include="Models\ExerciseModel.cs" />
     <Compile Include="Models\ExerciseOfStudentModel.cs" />
+    <Compile Include="Models\ExerciseOfStudentModelList.cs" />
     <Compile Include="Models\StudentModel.cs" />
     <Compile Include="Models\TaskModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

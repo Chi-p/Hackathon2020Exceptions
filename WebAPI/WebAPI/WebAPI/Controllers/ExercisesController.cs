@@ -27,7 +27,7 @@ namespace WebAPI.Controllers
         [ResponseType(typeof(Exercise))]
         public IHttpActionResult GetExercise(int ExerciseId, int StudentId)
         {
-            Exercise exercise = db.Exercise.ToList().FirstOrDefault(i => i.Id == ExerciseId);
+            var exercise = db.Exercise.ToList().FirstOrDefault(i => i.Id == ExerciseId);
             if (exercise == null)
                 return NotFound();
 
@@ -36,24 +36,26 @@ namespace WebAPI.Controllers
                 return NotFound();
 
             var taskList = exercise.Task;
-            foreach (var task in taskList)
-            {
-                var variableList = db.Variable.ToList().Where(i => i.Task == task).ToList();
-                string desc = task.Description;
 
+            foreach (var item in taskList)
+            {
+                string desc = item.Description;
+
+                var variableList = db.Variable.ToList();
                 foreach (var variable in variableList)
                 {
-                    var variableValue = variable.VariableValue.ToList();
-                    Random rand = new Random();
-                    int randIndex = rand.Next(0, variableValue.Count);
-                    student.VariableValue.Add(variableValue[randIndex]);
-                    db.SaveChanges();
+                    if (variable.TaskId == item.Id)
+                    {
+                        var variableValue = variable.VariableValue.ToList();
+                        Random rand = new Random();
+                        int randIndex = rand.Next(0, variableValue.Count);
+                        student.VariableValue.Add(variableValue[randIndex]);
+                        db.SaveChanges();
 
-                    if (desc.Contains(variable.Name))
-                        desc = desc.Replace(variable.Name, student.VariableValue.ToList()[randIndex].Value);
+                        if (desc.Contains(variable.Name))
+                            desc = desc.Replace(variable.Name, student.VariableValue.ToList()[randIndex].Value);
+                    }
                 }
-
-                task.Description = desc;
             }
 
             var result = new ExerciseModel(exercise)

@@ -28,12 +28,21 @@ namespace WebAPI.Controllers
         public IHttpActionResult GetExerciseOfStudent(int StudentId)
         {
             var exerciseOfStudent = db.ExerciseOfStudent.ToList().Where(i => i.StudentId == StudentId).ToList();
-
             if (exerciseOfStudent == null)
-            {
                 return NotFound();
+
+            var result = new List<ExerciseOfStudentModelList>();
+            foreach(var item in exerciseOfStudent.GroupBy(i => i.SubjectOfTeacher.Subject))
+            {
+                result.Add(new ExerciseOfStudentModelList
+                {
+                    SubjectName = item.First().SubjectOfTeacher.Subject.Name,
+                    ExerciseOfStudentModels = exerciseOfStudent.ToList().Where(i => 
+                    i.SubjectOfTeacher == item.First().SubjectOfTeacher).ToList().ConvertAll(i => new ExerciseOfStudentModel(i))
+                });
             }
-            return Ok(exerciseOfStudent.ConvertAll(i => new ExerciseOfStudentModel(i)));
+
+            return Ok(result);
         }
 
         // PUT: api/ExerciseOfStudents/5
