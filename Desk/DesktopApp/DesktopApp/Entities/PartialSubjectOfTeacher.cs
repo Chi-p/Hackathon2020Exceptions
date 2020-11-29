@@ -15,5 +15,12 @@ namespace DesktopApp.Entities
                 return $"{Group.Name} ({Group.Student.Count} чел.)";
             }
         }
+        public string GroupAndSubject
+        {
+            get
+            {
+                return $"{Group.Name} | {Subject.Name}";
+            }
+        }
     }
 }

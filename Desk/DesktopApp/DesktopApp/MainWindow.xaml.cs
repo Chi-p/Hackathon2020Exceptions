@@ -26,19 +26,6 @@ namespace DesktopApp
         public MainWindow()
         {
             InitializeComponent();
-            //foreach (var item in AppData.Context.ExerciseOfStudent.ToList())
-            //{
-            //    if (item.StudentId == 2)
-            //    {
-            //        item.StatusId = 1;
-            //        AppData.Context.SaveChanges();
-            //    }
-            //}
-            //foreach (var item in AppData.Context.TaskAnswer.ToList())
-            //{
-            //    AppData.Context.TaskAnswer.Remove(item);
-            //    AppData.Context.SaveChanges();
-            //}
             AppData.MainFrame = MainFrame;
         }
 
@@ -76,7 +63,7 @@ namespace DesktopApp
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             var page = AppData.MainFrame.Content as Page;
-            if (page.Title == "MainWindowTeacherPage")
+            if (page.Title == "Главное меню")
             {
                 Logout();
             }
@@ -127,6 +114,14 @@ namespace DesktopApp
                 (sender as DispatcherTimer).Stop();
             }
             _countToNavigate += 0.25;
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                Image_MouseLeftButtonDown(null, null);
+            }
         }
     }
 }

@@ -22,14 +22,19 @@ namespace DesktopApp.Pages
     /// </summary>
     public partial class ListOfExerciseAndStudents : Page
     {
-        public ListOfExerciseAndStudents(Group group)
+        public ListOfExerciseAndStudents(SubjectOfTeacher subjectOfTeacher)
         {
             InitializeComponent();
-            if (group != null)
+            if (subjectOfTeacher != null)
             {
-                AnimLvExercise.ItemsSource = AppData.Context.ExerciseOfStudent.ToList().Where(p => group.Student.Contains(p.Student)).ToList()
-                    .GroupBy(p => p.Exercise.Name);
-              
+                
+                AnimLvExercise.ItemsSource = AppData.Context.ExerciseOfStudent.ToList().Where(p => p.SubjectOfTeacher == subjectOfTeacher)
+                    .GroupBy(p => p.Exercise.Name).ToList();
+                if (AnimLvExercise.ItemsSource == null)
+                {
+
+                }
+
             }
         }
     }
