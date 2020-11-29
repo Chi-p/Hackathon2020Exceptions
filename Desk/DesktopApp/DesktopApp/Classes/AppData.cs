@@ -13,5 +13,8 @@ namespace DesktopApp.Classes
         public static Frame MainFrame;
         public static NotAThiefDataBaseEntities Context = new NotAThiefDataBaseEntities();
         public static User user;
+        public static List<Entities.Task> listTask = new List<Entities.Task>();
+        //public static List<Variable> _listOfVariable = new List<Variable>();
+        //public static List<VariableValue> _listOfVariableValue = new List<VariableValue>();
     }
 }

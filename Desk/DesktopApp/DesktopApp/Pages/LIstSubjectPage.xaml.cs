@@ -31,7 +31,7 @@ namespace DesktopApp.Pages
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            AppData.MainFrame.Navigate(new ListOfExerciseAndStudents(((sender as Grid).DataContext as Entities.SubjectOfTeacher).Group));
+            AppData.MainFrame.Navigate(new ListOfExerciseAndStudents(((sender as Grid).DataContext as Entities.SubjectOfTeacher)));
         }
 
         private void BtnCreateTest_Click(object sender, RoutedEventArgs e)

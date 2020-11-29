@@ -15,9 +15,13 @@
             <ScrollViewer Margin="10 10">
                 <Grid>
                     <StackPanel>
-                        <ComboBox Name="CbTypeExercise" DisplayMemberPath="Name"  Style="{DynamicResource ComboBoxStyled}"></ComboBox>
-                        <ComboBox Name="CbGroup" DisplayMemberPath="Name"  Style="{DynamicResource ComboBoxStyled}"></ComboBox>
-                        <ItemsControl x:Name="IcTask" HorizontalContentAlignment="Stretch" Margin="0" Height="200">
+                        <TextBlock>Название:</TextBlock>
+                        <TextBox x:Name="TbName" Style="{StaticResource TextBoxStyled}"></TextBox>
+                        <TextBlock>Тип работы:</TextBlock>
+                        <ComboBox Name="CbTypeExercise" DisplayMemberPath="Name" SelectionChanged="CbTypeExercise_SelectionChanged" Style="{DynamicResource ComboBoxStyled}"></ComboBox>
+                        <TextBlock>Группа:</TextBlock>
+                        <ComboBox SelectionChanged="CbGroup_SelectionChanged" Name="CbGroup" DisplayMemberPath="GroupAndSubject"  Style="{DynamicResource ComboBoxStyled}"></ComboBox>
+                        <ItemsControl IsEnabled="False" x:Name="IcTask" HorizontalContentAlignment="Stretch" Margin="0" Height="200">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <Border BorderBrush="{StaticResource MainAlmostBlack}" BorderThickness="2" CornerRadius="5" Margin="5">

@@ -85,3 +85,4 @@ D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp.sourcelink.json
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.CopyComplete
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp.exe
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp.pdb
+D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csprojAssemblyReference.cache
