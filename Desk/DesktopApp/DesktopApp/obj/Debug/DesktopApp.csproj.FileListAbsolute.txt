@@ -86,3 +86,5 @@ D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.CopyComplete
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp.exe
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp.pdb
 D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csprojAssemblyReference.cache
+D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\Windows\StudentAnswerDataGrid.g.cs
+D:\zeepzaga\Desk\DesktopApp\DesktopApp\obj\Debug\Windows\StudentAnswerDataGrid.baml

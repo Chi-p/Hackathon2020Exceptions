@@ -53,6 +53,7 @@ namespace DesktopApp.Windows
             _task = AppData.Context.Task.Add(new Entities.Task
             {
                 Description = TbDescruption.Text,
+
             });
             AppData.Context.SaveChanges();
             AppData.listTask.Add(_task);
@@ -61,23 +62,11 @@ namespace DesktopApp.Windows
                 AppData.Context.Variable.Add(new Variable
                 {
                     Name = item.Name,
-                    Task = _task
+                    Task = _task,
                 });
                 AppData.Context.SaveChanges();
             }
-            foreach (var item in _variableValueList)
-            {
-                if (!String.IsNullOrWhiteSpace(item.Value))
-                {
-                    AppData.Context.VariableValue.Add(new VariableValue
-                    {
-                        Value = item.Value,
-                        Variable = item.Variable,
-                    });
-                    AppData.Context.SaveChanges();
-                }
-                Close();
-            }
+            Close();
 
             //var studentList = AppData.Context.Student.Local.ToList();
 
@@ -95,13 +84,11 @@ namespace DesktopApp.Windows
 
         private void BtnAddValue_Click(object sender, RoutedEventArgs e)
         {
-            var a = (sender as Button).DataContext;
             _variableValueList.Add(new VariableValue
             {
                 Value = "",
                 Variable = _variableList.FirstOrDefault(predicate => predicate.Name == ((sender as Button).DataContext as IGrouping<string, VariableValue>).Key)
             });
-            IcValues.ItemsSource = null;
             IcValues.ItemsSource = _variableValueList.GroupBy(p => p.Variable.Name).ToList();
         }
     }

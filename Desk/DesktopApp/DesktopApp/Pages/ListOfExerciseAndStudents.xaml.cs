@@ -1,5 +1,6 @@
 ﻿using DesktopApp.Classes;
 using DesktopApp.Entities;
+using DesktopApp.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,15 +28,24 @@ namespace DesktopApp.Pages
             InitializeComponent();
             if (subjectOfTeacher != null)
             {
-                
                 AnimLvExercise.ItemsSource = AppData.Context.ExerciseOfStudent.ToList().Where(p => p.SubjectOfTeacher == subjectOfTeacher)
                     .GroupBy(p => p.Exercise.Name).ToList();
                 if (AnimLvExercise.ItemsSource == null)
-                {
-
-                }
+                    BorderNull.Visibility = Visibility.Visible;
+                else
+                    BorderNull.Visibility = Visibility.Collapsed;
 
             }
+        }
+        private void BtnCreateTest_Click(object sender, RoutedEventArgs e)
+        {
+            AppData.MainFrame.Navigate(new CreateTestPage());
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            StudentAnswerDataGrid studentAnswer = new StudentAnswerDataGrid((sender as Grid).DataContext as Entities.Task);
+            studentAnswer.ShowDialog();
         }
     }
 }

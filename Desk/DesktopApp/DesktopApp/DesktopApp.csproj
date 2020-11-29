@@ -221,12 +221,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Entities\PartialSubjectOfTeacher.cs" />
+    <Compile Include="Entities\PartialTaskAnswer.cs" />
     <Compile Include="Entities\PartialUser.cs" />
     <Compile Include="Entities\TaskAnswer.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Windows\AddTaskPage.xaml.cs">
       <DependentUpon>AddTaskPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\StudentAnswerDataGrid.xaml.cs">
+      <DependentUpon>StudentAnswerDataGrid.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -319,6 +323,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AddTaskPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\StudentAnswerDataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

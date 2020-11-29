@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
-        xmlns:local="clr-namespace:DesktopApp"
+        xmlns:local="clr-namespace:DesktopApp" KeyDown="Window_KeyDown"
         mc:Ignorable="d"
         Title="{Binding ElementName=MainFrame, Path=Content.Title}" MinHeight="600" MinWidth="1000" Height="600" Width="1000"  Style="{StaticResource MainWindow}">
     <Grid Background="{StaticResource MainGradient}">

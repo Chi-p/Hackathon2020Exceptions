@@ -23,7 +23,7 @@
                             <xfc:AnimatedListView Margin="10"  HorizontalContentAlignment="Stretch"  xf:Animations.Items="{xf:Animate BasedOn={StaticResource FadeInForListViews}}" xf:Animations.InterElementDelay="50" ItemsSource="{Binding Exercise.Task}">
                                 <xfc:AnimatedListView.ItemTemplate>
                                     <DataTemplate>
-                                        <Grid MinHeight="70">
+                                        <Grid MinHeight="70" Background="White" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="50"></ColumnDefinition>
                                                 <ColumnDefinition></ColumnDefinition>
@@ -46,10 +46,10 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
-        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border Visibility="Collapsed" x:Name="BorderNull" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
-                <TextBlock Style="{StaticResource TblockBold}">У вас нет никаких заданий</TextBlock>
-                <Button>Создать задание</Button>
+                <TextBlock FontSize="30" Style="{StaticResource TblockBold}">У вас нет никаких заданий</TextBlock>
+                <Button x:Name="BtnCreateTest" Click="BtnCreateTest_Click" FontSize="30" Style="{StaticResource ButtonStyled}">Создать задание</Button>
             </StackPanel>
         </Border>
     </Grid>

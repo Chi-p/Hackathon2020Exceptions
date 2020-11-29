@@ -52,11 +52,11 @@ namespace DesktopApp.Pages
             AppData.Context.SaveChanges();
             foreach (var item in AppData.listTask)
             {
-                _listTaskResult.Add(AppData.Context.Task.Add(new Entities.Task
+                _listTaskResult.Add(new Entities.Task
                 {
                     Id = 0,
                     Description = item.Description,
-                }));
+                });
                 AppData.Context.SaveChanges();
             }
             foreach (var item in _listTaskResult)

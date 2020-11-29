@@ -24,6 +24,7 @@ namespace DesktopApp.Pages
         public AutorizationPage()
         {
             InitializeComponent();
+            TbLogin.Focus();
         }
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)

@@ -1,4 +1,5 @@
 ﻿using DesktopApp.Classes;
+using DesktopApp.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,7 @@ namespace DesktopApp.Pages
 
         private void BtnCreateTest_Click(object sender, RoutedEventArgs e)
         {
-
+            AppData.MainFrame.Navigate(new CreateTestPage());
         }
     }
 }
