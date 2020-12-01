@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
 using System.Windows.Threading;
 
 namespace DesktopApp
@@ -87,17 +88,17 @@ namespace DesktopApp
         }
 
         double _countToNavigate = 0;
-        private void DtCountDown_Tick(object sender, EventArgs e)
+        private async void DtCountDown_Tick(object sender, EventArgs e)
         {
             if (_countToNavigate == 0.25)
             {
                 if (!string.IsNullOrWhiteSpace(Properties.Settings.Default.Login) && !string.IsNullOrWhiteSpace(Properties.Settings.Default.Password))
                 {
+                    //Боги, ну что ж за хуйня 
+                    var list =  await AppData.Context.User.ToListAsync();
+                    
+                    AppData.user = list.FirstOrDefault(p => p.Password == Properties.Settings.Default.Password && p.Login == Properties.Settings.Default.Login);
 
-                    //await Task.Run(() =>
-                    // {
-                    AppData.user = AppData.Context.User.ToList().FirstOrDefault(p => p.Password == Properties.Settings.Default.Password && p.Login == Properties.Settings.Default.Login);
-                    //});
                     if (AppData.user != null)
                     {
                         AppData.MainFrame.Navigate(new MainMenuTeacherPage());
@@ -119,7 +120,7 @@ namespace DesktopApp
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Enter)
+            if (e.Key == Key.Enter)
             {
                 Image_MouseLeftButtonDown(null, null);
             }
